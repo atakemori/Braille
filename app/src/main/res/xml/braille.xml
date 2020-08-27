@@ -12,17 +12,18 @@
     </item>
 
     <item code="000001">
-        <letter>""</letter>
+        <letter>"A"</letter>
         <index>1</index>
         <code>000001</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>1</number>
     </item>
 
     <item code="000010">
-        <letter>""</letter>
+        <letter>"ea"</letter>
         <index>2</index>
         <code>000010</code>
         <punctuation>""</punctuation>
@@ -32,13 +33,14 @@
     </item>
 
     <item code="000011">
-        <letter>""</letter>
+        <letter>"B"</letter>
         <index>3</index>
         <code>000011</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>3</number>
     </item>
 
     <item code="000100">
@@ -52,7 +54,7 @@
     </item>
 
     <item code="000101">
-        <letter>""</letter>
+        <letter>"K"</letter>
         <index>5</index>
         <code>000101</code>
         <punctuation>""</punctuation>
@@ -62,7 +64,7 @@
     </item>
 
     <item code="000110">
-        <letter>""</letter>
+        <letter>"bb"</letter>
         <index>6</index>
         <code>000110</code>
         <punctuation>""</punctuation>
@@ -72,7 +74,7 @@
     </item>
 
     <item code="000111">
-        <letter>""</letter>
+        <letter>"L"</letter>
         <index>7</index>
         <code>000111</code>
         <punctuation>""</punctuation>
@@ -92,33 +94,36 @@
     </item>
 
     <item code="001001">
-        <letter>""</letter>
+        <letter>"C"</letter>
         <index>9</index>
         <code>001001</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>3</number>
     </item>
 
     <item code="001010">
-        <letter>""</letter>
+        <letter>"I"</letter>
         <index>10</index>
         <code>001010</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>9</number>
     </item>
 
     <item code="001011">
-        <letter>""</letter>
+        <letter>"F"</letter>
         <index>11</index>
         <code>001011</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>6</number>
     </item>
 
     <item code="001100">
@@ -132,7 +137,7 @@
     </item>
 
     <item code="001101">
-        <letter>""</letter>
+        <letter>"M"</letter>
         <index>13</index>
         <code>001101</code>
         <punctuation>""</punctuation>
@@ -142,7 +147,7 @@
     </item>
 
     <item code="001110">
-        <letter>""</letter>
+        <letter>"S"</letter>
         <index>14</index>
         <code>001110</code>
         <punctuation>""</punctuation>
@@ -152,7 +157,7 @@
     </item>
 
     <item code="001111">
-        <letter>""</letter>
+        <letter>"P"</letter>
         <index>15</index>
         <code>001111</code>
         <punctuation>""</punctuation>
@@ -172,17 +177,18 @@
     </item>
 
     <item code="010001">
-        <letter>""</letter>
+        <letter>"E"</letter>
         <index>17</index>
         <code>010001</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>5</number>
     </item>
 
     <item code="010010">
-        <letter>""</letter>
+        <letter>"cc"</letter>
         <index>18</index>
         <code>010010</code>
         <punctuation>""</punctuation>
@@ -192,17 +198,18 @@
     </item>
 
     <item code="010011">
-        <letter>""</letter>
+        <letter>"H"</letter>
         <index>19</index>
         <code>010011</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>8</number>
     </item>
 
     <item code="010100">
-        <letter>""</letter>
+        <letter>"in"</letter>
         <index>20</index>
         <code>010100</code>
         <punctuation>""</punctuation>
@@ -212,7 +219,7 @@
     </item>
 
     <item code="010101">
-        <letter>""</letter>
+        <letter>"O"</letter>
         <index>21</index>
         <code>010101</code>
         <punctuation>""</punctuation>
@@ -222,7 +229,7 @@
     </item>
 
     <item code="010110">
-        <letter>""</letter>
+        <letter>"ff"</letter>
         <index>22</index>
         <code>010110</code>
         <punctuation>""</punctuation>
@@ -232,7 +239,7 @@
     </item>
 
     <item code="010111">
-        <letter>""</letter>
+        <letter>"R"</letter>
         <index>23</index>
         <code>010111</code>
         <punctuation>""</punctuation>
@@ -252,33 +259,36 @@
     </item>
 
     <item code="011001">
-        <letter>""</letter>
+        <letter>"D"</letter>
         <index>25</index>
         <code>011001</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>4</number>
     </item>
 
     <item code="011010">
-        <letter>""</letter>
+        <letter>"J"</letter>
         <index>26</index>
         <code>011010</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>0</number>
     </item>
 
     <item code="011011">
-        <letter>""</letter>
+        <letter>"G"</letter>
         <index>27</index>
         <code>011011</code>
         <punctuation>""</punctuation>
         <abrevSolo>""</abrevSolo>
         <abrev1>""</abrev1>
         <abrev2>""</abrev2>
+        <number>7</number>
     </item>
 
     <item code="011100">
@@ -292,7 +302,7 @@
     </item>
 
     <item code="011101">
-        <letter>""</letter>
+        <letter>"N"</letter>
         <index>29</index>
         <code>011101</code>
         <punctuation>""</punctuation>
@@ -302,7 +312,7 @@
     </item>
 
     <item code="011110">
-        <letter>""</letter>
+        <letter>"T"</letter>
         <index>30</index>
         <code>011110</code>
         <punctuation>""</punctuation>
@@ -312,7 +322,7 @@
     </item>
 
     <item code="011111">
-        <letter>""</letter>
+        <letter>"Q"</letter>
         <index>31</index>
         <code>011111</code>
         <punctuation>""</punctuation>
@@ -333,7 +343,7 @@
     </item>
 
     <item code="100001">
-        <letter>""</letter>
+        <letter>"ch"</letter>
         <index>33</index>
         <code>100001</code>
         <punctuation>""</punctuation>
@@ -343,7 +353,7 @@
     </item>
 
     <item code="100010">
-        <letter>""</letter>
+        <letter>"en"</letter>
         <index>34</index>
         <code>100010</code>
         <punctuation>""</punctuation>
@@ -353,7 +363,7 @@
     </item>
 
     <item code="100011">
-        <letter>""</letter>
+        <letter>"gh"</letter>
         <index>35</index>
         <code>100011</code>
         <punctuation>""</punctuation>
@@ -373,7 +383,7 @@
     </item>
 
     <item code="100101">
-        <letter>""</letter>
+        <letter>"U"</letter>
         <index>37</index>
         <code>100101</code>
         <punctuation>""</punctuation>
@@ -393,7 +403,7 @@
     </item>
 
     <item code="100111">
-        <letter>""</letter>
+        <letter>"V"</letter>
         <index>39</index>
         <code>100111</code>
         <punctuation>""</punctuation>
@@ -413,7 +423,7 @@
     </item>
 
     <item code="101001">
-        <letter>""</letter>
+        <letter>"sh"</letter>
         <index>41</index>
         <code>101001</code>
         <punctuation>""</punctuation>
@@ -423,7 +433,7 @@
     </item>
 
     <item code="101010">
-        <letter>""</letter>
+        <letter>"ow"</letter>
         <index>42</index>
         <code>101010</code>
         <punctuation>""</punctuation>
@@ -433,7 +443,7 @@
     </item>
 
     <item code="101011">
-        <letter>""</letter>
+        <letter>"ed"</letter>
         <index>43</index>
         <code>101011</code>
         <punctuation>""</punctuation>
@@ -453,7 +463,7 @@
     </item>
 
     <item code="101101">
-        <letter>""</letter>
+        <letter>"X"</letter>
         <index>45</index>
         <code>101101</code>
         <punctuation>""</punctuation>
@@ -463,7 +473,7 @@
     </item>
 
     <item code="101110">
-        <letter>""</letter>
+        <letter>"the"</letter>
         <index>46</index>
         <code>101110</code>
         <punctuation>""</punctuation>
@@ -473,7 +483,7 @@
     </item>
 
     <item code="101111">
-        <letter>""</letter>
+        <letter>"and"</letter>
         <index>47</index>
         <code>101111</code>
         <punctuation>""</punctuation>
@@ -493,7 +503,7 @@
     </item>
 
     <item code="110001">
-        <letter>""</letter>
+        <letter>"wh"</letter>
         <index>49</index>
         <code>110001</code>
         <punctuation>""</punctuation>
@@ -503,7 +513,7 @@
     </item>
 
     <item code="110010">
-        <letter>""</letter>
+        <letter>"dd"</letter>
         <index>50</index>
         <code>110010</code>
         <punctuation>""</punctuation>
@@ -513,7 +523,7 @@
     </item>
 
     <item code="110011">
-        <letter>""</letter>
+        <letter>"ou"</letter>
         <index>51</index>
         <code>110011</code>
         <punctuation>""</punctuation>
@@ -533,7 +543,7 @@
     </item>
 
     <item code="110101">
-        <letter>""</letter>
+        <letter>"Z"</letter>
         <index>53</index>
         <code>110101</code>
         <punctuation>""</punctuation>
@@ -543,7 +553,7 @@
     </item>
 
     <item code="110110">
-        <letter>""</letter>
+        <letter>"gg"</letter>
         <index>54</index>
         <code>110110</code>
         <punctuation>""</punctuation>
@@ -553,7 +563,7 @@
     </item>
 
     <item code="110111">
-        <letter>""</letter>
+        <letter>"of"</letter>
         <index>55</index>
         <code>110111</code>
         <punctuation>""</punctuation>
@@ -573,7 +583,7 @@
     </item>
 
     <item code="111001">
-        <letter>""</letter>
+        <letter>"th"</letter>
         <index>57</index>
         <code>111001</code>
         <punctuation>""</punctuation>
@@ -583,7 +593,7 @@
     </item>
 
     <item code="111010">
-        <letter>""</letter>
+        <letter>"W"</letter>
         <index>58</index>
         <code>111010</code>
         <punctuation>""</punctuation>
@@ -593,7 +603,7 @@
     </item>
 
     <item code="111011">
-        <letter>""</letter>
+        <letter>"er"</letter>
         <index>59</index>
         <code>111011</code>
         <punctuation>""</punctuation>
@@ -613,7 +623,7 @@
     </item>
 
     <item code="111101">
-        <letter>""</letter>
+        <letter>"Y"</letter>
         <index>61</index>
         <code>111101</code>
         <punctuation>""</punctuation>
@@ -623,7 +633,7 @@
     </item>
 
     <item code="111110">
-        <letter>""</letter>
+        <letter>"with"</letter>
         <index>62</index>
         <code>111110</code>
         <punctuation>""</punctuation>
@@ -633,7 +643,7 @@
     </item>
 
     <item code="111111">
-        <letter>""</letter>
+        <letter>"for"</letter>
         <index>63</index>
         <code>111111</code>
         <punctuation>""</punctuation>
