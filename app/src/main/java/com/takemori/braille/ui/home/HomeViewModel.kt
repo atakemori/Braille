@@ -3,6 +3,7 @@ package com.takemori.braille.ui.home
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.takemori.braille.Braille
 import com.takemori.braille.Letter
@@ -22,6 +23,11 @@ class HomeViewModel : ViewModel() {
     private val _brailleByte = MutableLiveData<Byte>()
     val brailleByte: LiveData<Byte>
         get() = _brailleByte
+
+    val brailleToLetter = Transformations.map(brailleByte) { input: Byte? ->
+        val i = input?.toInt()?: 0
+        return@map Braille.getLetter(i).letter //TODO add logic to determin if it should show letter or abbrev etc.
+    }
 
 
     init {
