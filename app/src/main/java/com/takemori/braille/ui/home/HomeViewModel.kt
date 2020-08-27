@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.takemori.braille.Braille
+import com.takemori.braille.Letter
 import kotlin.experimental.and
 import kotlin.experimental.inv
 import kotlin.experimental.or
@@ -53,6 +55,10 @@ class HomeViewModel : ViewModel() {
             // remove the num bit to _brailleByte
             _brailleByte.value = _brailleByte.value?.and(mask.inv())
         }
+
+
+        val letter: Letter = Braille.getLetter(brailleByte.value!!.toInt())
+        Log.i("HomeViewModel.kt", "Retrieved value :${letter.letter}")
     }
 
 

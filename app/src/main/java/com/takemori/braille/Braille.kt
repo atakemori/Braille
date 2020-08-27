@@ -4,9 +4,12 @@ import android.content.res.Resources
 import android.content.res.XmlResourceParser
 import org.xmlpull.v1.XmlPullParser
 
-object Braille {
+class Braille {
+    companion object {
 
     private val list: List<Letter>
+//    private val list: List<Letter?>
+
 
     init {
         list = loadData().toList()
@@ -33,7 +36,7 @@ object Braille {
             var abrev1: String? = null
             var abrev2: String? = null
 
-            while (eventType != XmlPullParser.END_TAG && xpp.name != "item") {
+            while ((eventType != XmlPullParser.END_TAG) || xpp.name.toString() != "item") {
                 if (eventType == XmlPullParser.START_TAG) {
                     when (xpp.name) {
                         "letter" -> {
@@ -48,7 +51,8 @@ object Braille {
                         }
                         "code" -> {
                             eventType = xpp.next()
-                            if (eventType == XmlPullParser.TEXT) code = xpp.text.toByte()
+//                            if (eventType == XmlPullParser.TEXT) code = xpp.text.toByte()
+                            if (eventType == XmlPullParser.TEXT) code = xpp.text.toByte(2)
                             xpp.next()
                         }
                         "punctuation" -> {
@@ -78,7 +82,6 @@ object Braille {
             return Letter(code, letter, index, punctuation, abrevSolo, abrev1, abrev2)
         }
 
-
         while (eventType != XmlPullParser.END_DOCUMENT) {
             if (eventType == XmlPullParser.START_DOCUMENT) {
             } else if (eventType == XmlPullParser.START_TAG && xpp.name == "item") {
@@ -92,6 +95,16 @@ object Braille {
     }
 
 
+    /**
+     * Return a Letter after xml data has been loaded.
+     * The index is the braille dots Byte converted to
+     * an integer.
+     */
+    public fun getLetter(i: Int): Letter {
+        return list.get(i)?: throw NullPointerException("Data not initialized")
+    }
 
+
+    }
 
 }

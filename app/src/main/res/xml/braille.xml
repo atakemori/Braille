@@ -2,7 +2,7 @@
 <resources>
 
     <item code="000000">
-        <letter>""</letter>
+        <letter>"TEST"</letter>
         <index>0</index>
         <code>000000</code>
         <punctuation>""</punctuation>
