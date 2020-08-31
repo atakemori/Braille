@@ -36,6 +36,7 @@ class HomeViewModel : ViewModel() {
     val lettersToString = Transformations.map(lettersList) { input: MutableList<Letter> ->
         val stringBuilder: StringBuilder  = StringBuilder()
         for (letter: Letter in input) {
+//            if (letter.code == 001000)
             stringBuilder.append(letter.letter)
         }
         return@map stringBuilder.toString()
@@ -93,6 +94,17 @@ class HomeViewModel : ViewModel() {
         _lettersList.value?.add(letter)
         _lettersList.notifyObserver()
     }
+
+    /**
+     * Remove the last letter in _lettersList
+     */
+    public fun removeLetter() {
+        if (_lettersList.value!!.isNotEmpty()) {
+            _lettersList.value?.removeLast()
+            _lettersList.notifyObserver()
+        }
+    }
+
 }
 
 /**

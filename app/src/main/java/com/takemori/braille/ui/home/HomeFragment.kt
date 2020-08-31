@@ -55,7 +55,8 @@ class HomeFragment : Fragment() {
             homeViewModel.buttonFlip(1, isChecked)
         }
 
-        binding.buttonClear.setOnClickListener { clearButtons() }
+//        binding.buttonClear.setOnClickListener { clearButtons() }
+        binding.buttonClear.setOnClickListener { removeLetter() }
         binding.addLetterButton.setOnClickListener { addLetter()}
 
         binding.buttons.toggleButton2.setOnCheckedChangeListener { buttonView, isChecked -> homeViewModel.buttonFlip(2, isChecked)}
@@ -80,6 +81,10 @@ class HomeFragment : Fragment() {
             button.isChecked = false
             //delay 20
         }
+    }
+
+    public fun removeLetter() {
+        homeViewModel.removeLetter()
     }
 
 }
