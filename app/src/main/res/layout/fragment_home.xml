@@ -13,31 +13,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.takemori.braille.MainActivity">
-    
+
         <TextView
-            android:id="@+id/text_home"
-            android:layout_width="match_parent"
+            android:id="@+id/letters_to_string"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:textAlignment="center"
             android:textSize="20sp"
+            android:text="@{homeFragmentViewModel.lettersToString}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.100000024" />
-    
+
         <include
-            layout="@layout/braille_buttons_array"
             android:id="@+id/buttons"
+            layout="@layout/braille_buttons_array"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
             app:layout_constraintStart_toStartOf="@+id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@+id/text_home"
+            app:layout_constraintTop_toBottomOf="@+id/letters_to_string"
             app:layout_constraintVertical_bias="0.50" />
     
         <androidx.constraintlayout.widget.Guideline
@@ -57,22 +56,24 @@
             android:id="@+id/toggleButtonTEST"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="ToggleButton"
-            tools:layout_editor_absoluteX="74dp"
-            tools:layout_editor_absoluteY="83dp" />
+            app:layout_constraintBottom_toBottomOf="@+id/buttonClear"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left" />
 
         <Button
-            android:id="@+id/buttonPlainTEST"
+            android:id="@+id/buttonClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:text="Button"
+            android:layout_marginBottom="35dp"
+            android:background="@android:drawable/ic_input_delete"
+            app:layout_constraintBottom_toTopOf="@+id/buttons"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:background="@android:drawable/ic_input_delete" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/byteView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -86,10 +87,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="@{homeFragmentViewModel.brailleToLetter}"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
+            android:text="@{homeFragmentViewModel.brailleToLetter.letter}"
+            app:layout_constraintBottom_toTopOf="@+id/byteView"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
             app:layout_constraintStart_toStartOf="@+id/guideline_left" />
+
+        <ImageButton
+            android:id="@+id/add_letter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttons"
+            app:layout_constraintTop_toTopOf="@+id/buttons"
+            app:srcCompat="@android:drawable/ic_input_add" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

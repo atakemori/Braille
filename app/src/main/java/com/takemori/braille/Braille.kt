@@ -36,44 +36,37 @@ class Braille {
             var abrev1: String? = null
             var abrev2: String? = null
 
+            fun readText(): String?{
+                var readText: String? = null
+                eventType = xpp.next()
+                if (eventType == XmlPullParser.TEXT) readText = xpp.text
+                xpp.next()
+                return readText
+            }
+
             while ((eventType != XmlPullParser.END_TAG) || xpp.name.toString() != "item") {
                 if (eventType == XmlPullParser.START_TAG) {
                     when (xpp.name) {
                         "letter" -> {
-                            eventType = xpp.next()
-                            if (eventType == XmlPullParser.TEXT) letter = xpp.text
-                            xpp.next()
+                            letter = readText()?:""
                         }
                         "index" -> {
-                            eventType = xpp.next()
-                            if (eventType == XmlPullParser.TEXT) index = xpp.text.toInt()
-                            xpp.next()
+                            index = readText()?.toInt()?:-1
                         }
                         "code" -> {
-                            eventType = xpp.next()
-//                            if (eventType == XmlPullParser.TEXT) code = xpp.text.toByte()
-                            if (eventType == XmlPullParser.TEXT) code = xpp.text.toByte(2)
-                            xpp.next()
+                            code = readText()?.toByte(2)?:-1
                         }
                         "punctuation" -> {
-                            eventType = xpp.next()
-                            if (eventType == XmlPullParser.TEXT) punctuation = xpp.text
-                            xpp.next()
+                            punctuation = readText()?:""
                         }
                         "abrevSolo" -> {
-                            eventType = xpp.next()
-                            if (eventType == XmlPullParser.TEXT) abrevSolo = xpp.text
-                            xpp.next()
+                            abrevSolo = readText()?:""
                         }
                         "abrev1" -> {
-                            eventType = xpp.next()
-                            if (eventType == XmlPullParser.TEXT) abrev1 = xpp.text
-                            xpp.next()
+                            abrev1 = readText()?:""
                         }
                         "abrev2" -> {
-                            eventType = xpp.next()
-                            if (eventType == XmlPullParser.TEXT) abrev2 = xpp.text
-                            xpp.next()
+                            abrev2 = readText()?:""
                         }
                     }
                 }
@@ -95,15 +88,15 @@ class Braille {
     }
 
 
+    val UNKNOWN_LETTER: Int = 0 // replace with a null letter index later
     /**
      * Return a Letter after xml data has been loaded.
      * The index is the braille dots Byte converted to
      * an integer.
      */
-    public fun getLetter(i: Int): Letter {
-        return list.get(i)?: throw NullPointerException("Data not initialized")
+    public fun getLetter(i: Int?): Letter {
+        return list.get(i?:UNKNOWN_LETTER)?: throw NullPointerException("Data not initialized")
     }
-
 
     }
 

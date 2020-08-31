@@ -26,13 +26,27 @@ class HomeViewModel : ViewModel() {
 
     val brailleToLetter = Transformations.map(brailleByte) { input: Byte? ->
         val i = input?.toInt()?: 0
-        return@map Braille.getLetter(i).letter //TODO add logic to determin if it should show letter or abbrev etc.
+        return@map Braille.getLetter(i) //TODO add logic to determin if it should show letter or abbrev etc.
+    }
+
+    private val _lettersList = MutableLiveData<MutableList<Letter>>()
+    val lettersList: LiveData<MutableList<Letter>>
+        get() = _lettersList
+
+    val lettersToString = Transformations.map(lettersList) { input: MutableList<Letter> ->
+        val stringBuilder: StringBuilder  = StringBuilder()
+        for (letter: Letter in input) {
+            stringBuilder.append(letter.letter)
+        }
+        return@map stringBuilder.toString()
+//        return@map "test"
     }
 
 
     init {
         _word.value = "la"
         _brailleByte.value = 0b0
+        _lettersList.value = mutableListOf<Letter>()
     }
 
 
@@ -67,5 +81,25 @@ class HomeViewModel : ViewModel() {
         Log.i("HomeViewModel.kt", "Retrieved value :${letter.letter}")
     }
 
+    /**
+     * Function called from plus button, to take in the current displayed
+     * braille byte and then store that letter in a local list to build a string.
+     */
+    public fun addInput() {
+//        val letter: Letter = brailleToLetter.value?: Letter(-1, "ERROR", -1, null, null, null, null)
+        val letter: Letter = Braille.getLetter(brailleByte.value?.toInt())
 
+        //clearButtons()
+        _lettersList.value?.add(letter)
+        _lettersList.notifyObserver()
+    }
+}
+
+/**
+ * Extension function from s.o. https://stackoverflow.com/questions/47941537/notify-observer-when-item-is-added-to-list-of-livedata
+ * to trigger a liveData update when lists are updated. Otherwise just changing
+ * an item in a list will not create a new version number and observers are not notified.
+ */
+private fun <T> MutableLiveData<T>.notifyObserver() {
+    this.value = this.value
 }

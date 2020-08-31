@@ -2,654 +2,654 @@
 <resources>
 
     <item code="000000">
-        <letter>"TEST"</letter>
+        <letter>SPACE</letter>
         <index>0</index>
         <code>000000</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="000001">
-        <letter>"A"</letter>
+        <letter>A</letter>
         <index>1</index>
         <code>000001</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>1</number>
     </item>
 
     <item code="000010">
-        <letter>"ea"</letter>
+        <letter>ea</letter>
         <index>2</index>
         <code>000010</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="000011">
-        <letter>"B"</letter>
+        <letter>B</letter>
         <index>3</index>
         <code>000011</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>3</number>
     </item>
 
     <item code="000100">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>4</index>
         <code>000100</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="000101">
-        <letter>"K"</letter>
+        <letter>K</letter>
         <index>5</index>
         <code>000101</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="000110">
-        <letter>"bb"</letter>
+        <letter>bb</letter>
         <index>6</index>
         <code>000110</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="000111">
-        <letter>"L"</letter>
+        <letter>L</letter>
         <index>7</index>
         <code>000111</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="001000">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>8</index>
         <code>001000</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="001001">
-        <letter>"C"</letter>
+        <letter>C</letter>
         <index>9</index>
         <code>001001</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>3</number>
     </item>
 
     <item code="001010">
-        <letter>"I"</letter>
+        <letter>I</letter>
         <index>10</index>
         <code>001010</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>9</number>
     </item>
 
     <item code="001011">
-        <letter>"F"</letter>
+        <letter>F</letter>
         <index>11</index>
         <code>001011</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>6</number>
     </item>
 
     <item code="001100">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>12</index>
         <code>001100</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="001101">
-        <letter>"M"</letter>
+        <letter>M</letter>
         <index>13</index>
         <code>001101</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="001110">
-        <letter>"S"</letter>
+        <letter>S</letter>
         <index>14</index>
         <code>001110</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="001111">
-        <letter>"P"</letter>
+        <letter>P</letter>
         <index>15</index>
         <code>001111</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="010000">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>16</index>
         <code>010000</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="010001">
-        <letter>"E"</letter>
+        <letter>E</letter>
         <index>17</index>
         <code>010001</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>5</number>
     </item>
 
     <item code="010010">
-        <letter>"cc"</letter>
+        <letter>cc</letter>
         <index>18</index>
         <code>010010</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="010011">
-        <letter>"H"</letter>
+        <letter>H</letter>
         <index>19</index>
         <code>010011</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>8</number>
     </item>
 
     <item code="010100">
-        <letter>"in"</letter>
+        <letter>in</letter>
         <index>20</index>
         <code>010100</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="010101">
-        <letter>"O"</letter>
+        <letter>O</letter>
         <index>21</index>
         <code>010101</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="010110">
-        <letter>"ff"</letter>
+        <letter>ff</letter>
         <index>22</index>
         <code>010110</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="010111">
-        <letter>"R"</letter>
+        <letter>R</letter>
         <index>23</index>
         <code>010111</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="011000">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>24</index>
         <code>011000</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="011001">
-        <letter>"D"</letter>
+        <letter>D</letter>
         <index>25</index>
         <code>011001</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>4</number>
     </item>
 
     <item code="011010">
-        <letter>"J"</letter>
+        <letter>J</letter>
         <index>26</index>
         <code>011010</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>0</number>
     </item>
 
     <item code="011011">
-        <letter>"G"</letter>
+        <letter>G</letter>
         <index>27</index>
         <code>011011</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
         <number>7</number>
     </item>
 
     <item code="011100">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>28</index>
         <code>011100</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="011101">
-        <letter>"N"</letter>
+        <letter>N</letter>
         <index>29</index>
         <code>011101</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="011110">
-        <letter>"T"</letter>
+        <letter>T</letter>
         <index>30</index>
         <code>011110</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="011111">
-        <letter>"Q"</letter>
+        <letter>Q</letter>
         <index>31</index>
         <code>011111</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
 
     <item code="100000">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>32</index>
         <code>100000</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="100001">
-        <letter>"ch"</letter>
+        <letter>ch</letter>
         <index>33</index>
         <code>100001</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="100010">
-        <letter>"en"</letter>
+        <letter>en</letter>
         <index>34</index>
         <code>100010</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="100011">
-        <letter>"gh"</letter>
+        <letter>gh</letter>
         <index>35</index>
         <code>100011</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="100100">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>36</index>
         <code>100100</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="100101">
-        <letter>"U"</letter>
+        <letter>U</letter>
         <index>37</index>
         <code>100101</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="100110">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>38</index>
         <code>100110</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="100111">
-        <letter>"V"</letter>
+        <letter>V</letter>
         <index>39</index>
         <code>100111</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="101000">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>40</index>
         <code>101000</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="101001">
-        <letter>"sh"</letter>
+        <letter>sh</letter>
         <index>41</index>
         <code>101001</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="101010">
-        <letter>"ow"</letter>
+        <letter>ow</letter>
         <index>42</index>
         <code>101010</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="101011">
-        <letter>"ed"</letter>
+        <letter>ed</letter>
         <index>43</index>
         <code>101011</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="101100">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>44</index>
         <code>101100</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="101101">
-        <letter>"X"</letter>
+        <letter>X</letter>
         <index>45</index>
         <code>101101</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="101110">
-        <letter>"the"</letter>
+        <letter>the</letter>
         <index>46</index>
         <code>101110</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="101111">
-        <letter>"and"</letter>
+        <letter>and</letter>
         <index>47</index>
         <code>101111</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="110000">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>48</index>
         <code>110000</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="110001">
-        <letter>"wh"</letter>
+        <letter>wh</letter>
         <index>49</index>
         <code>110001</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="110010">
-        <letter>"dd"</letter>
+        <letter>dd</letter>
         <index>50</index>
         <code>110010</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="110011">
-        <letter>"ou"</letter>
+        <letter>ou</letter>
         <index>51</index>
         <code>110011</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="110100">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>52</index>
         <code>110100</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="110101">
-        <letter>"Z"</letter>
+        <letter>Z</letter>
         <index>53</index>
         <code>110101</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="110110">
-        <letter>"gg"</letter>
+        <letter>gg</letter>
         <index>54</index>
         <code>110110</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="110111">
-        <letter>"of"</letter>
+        <letter>of</letter>
         <index>55</index>
         <code>110111</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="111000">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>56</index>
         <code>111000</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="111001">
-        <letter>"th"</letter>
+        <letter>th</letter>
         <index>57</index>
         <code>111001</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="111010">
-        <letter>"W"</letter>
+        <letter>W</letter>
         <index>58</index>
         <code>111010</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="111011">
-        <letter>"er"</letter>
+        <letter>er</letter>
         <index>59</index>
         <code>111011</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="111100">
-        <letter>""</letter>
+        <letter>NO_ENTRY</letter>
         <index>60</index>
         <code>111100</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="111101">
-        <letter>"Y"</letter>
+        <letter>Y</letter>
         <index>61</index>
         <code>111101</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="111110">
-        <letter>"with"</letter>
+        <letter>with</letter>
         <index>62</index>
         <code>111110</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
     <item code="111111">
-        <letter>"for"</letter>
+        <letter>for</letter>
         <index>63</index>
         <code>111111</code>
-        <punctuation>""</punctuation>
-        <abrevSolo>""</abrevSolo>
-        <abrev1>""</abrev1>
-        <abrev2>""</abrev2>
+        <punctuation>NO_ENTRY</punctuation>
+        <abrevSolo>NO_ENTRY</abrevSolo>
+        <abrev1>NO_ENTRY</abrev1>
+        <abrev2>NO_ENTRY</abrev2>
     </item>
 
 
