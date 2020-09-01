@@ -35,6 +35,7 @@ class Braille {
             var abrevSolo: String? = null
             var abrev1: String? = null
             var abrev2: String? = null
+            var number: Int? = null
 
             fun readText(): String?{
                 var readText: String? = null
@@ -68,11 +69,14 @@ class Braille {
                         "abrev2" -> {
                             abrev2 = readText()?:""
                         }
+                        "number" -> {
+                            number = readText()?.toInt()
+                        }
                     }
                 }
                 eventType = xpp.next() //potentially another tag start
             }
-            return Letter(code, letter, index, punctuation, abrevSolo, abrev1, abrev2)
+            return Letter(code, letter, index, punctuation, abrevSolo, abrev1, abrev2, number)
         }
 
         while (eventType != XmlPullParser.END_DOCUMENT) {

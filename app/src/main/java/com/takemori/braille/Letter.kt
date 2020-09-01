@@ -7,6 +7,7 @@ data class Letter(
         val punctuation: String?,
         val abrevSolo: String?,
         val abrev1: String?,
-        val abrev2: String?
+        val abrev2: String?,
+        val number: Int?
 ) {
 }

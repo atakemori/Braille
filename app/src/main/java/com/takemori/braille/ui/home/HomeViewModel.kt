@@ -33,12 +33,56 @@ class HomeViewModel : ViewModel() {
     val lettersList: LiveData<MutableList<Letter>>
         get() = _lettersList
 
+
+    val code001000: Byte = 60
+    val numberCode: Byte = 60
+    val letterCode: Byte = 48
+//    val code
+
+
     val lettersToString = Transformations.map(lettersList) { input: MutableList<Letter> ->
         val stringBuilder: StringBuilder  = StringBuilder()
-        for (letter: Letter in input) {
-//            if (letter.code == 001000)
-            stringBuilder.append(letter.letter)
+        var mode: Byte = letterCode
+
+        var i = 0
+        var letter: Letter
+        while (i < input.size) {
+            letter = input[i]
+
+            if (letter.code == numberCode) {
+                mode = numberCode
+                i++
+                continue
+            } else if (letter.code == letterCode) {
+                mode = letterCode
+                i++
+                continue
+            }
+
+            if (mode == numberCode) {
+                if (letter.number != null) {
+                    stringBuilder.append(letter.number!!)
+                    i++
+                    continue
+                } else {
+                    mode = letterCode
+                    continue
+                }
+            }
+            if (mode == letterCode) {
+                if (letter.letter == "SPACE") {
+                    stringBuilder.append("_")
+                    i++
+                    continue
+                } else {
+                    stringBuilder.append(letter.letter)
+                    i++
+                    continue
+                }
+            }
+
         }
+
         return@map stringBuilder.toString()
 //        return@map "test"
     }
