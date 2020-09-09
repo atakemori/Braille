@@ -7,12 +7,13 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
+import android.media.AudioManager
+import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import android.view.*
-import android.view.HapticFeedbackConstants.*
 import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -28,6 +29,26 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
     private lateinit var listOfBrailleButtons: List<ToggleButton>
+
+    private final lateinit var soundPlayer:  SoundPool
+    private var soundIdToggleOn: Int = 0
+    private var soundIdToggleOff: Int = 0
+
+
+    override fun onStop() {
+        super.onStop()
+        // Docu recommends to set SoundPool to null after release, but I would rather
+        // not since kotlin will require safe calls throughout usage
+        soundPlayer.release()
+        //soundPlayer = null
+    }
+
+    override fun onStart() {
+        super.onStart()
+        soundPlayer = SoundPool(3, AudioManager.USE_DEFAULT_STREAM_TYPE, 0)
+        soundIdToggleOn = soundPlayer.load(this.context, R.raw.blip_fs5, 1)
+        soundIdToggleOff = soundPlayer.load(this.context, R.raw.blip_d5, 1)
+    }
 
     @RequiresApi(Build.VERSION_CODES.N)
     @ExperimentalStdlibApi
@@ -64,7 +85,11 @@ class HomeFragment : Fragment() {
         for (toggleButton: ToggleButton in listOfBrailleButtons) {
             val buttonNum: Int = toggleButton.tag.toString().toInt()
             // Add listeners for updating viewModel data once the buttons are toggled
-            toggleButton.setOnCheckedChangeListener { view, isChecked -> homeViewModel.buttonFlip(buttonNum, isChecked)}
+            toggleButton.setOnCheckedChangeListener { view, isChecked ->
+                homeViewModel.buttonFlip(buttonNum, isChecked)
+                if (isChecked) {soundPlayer.play(soundIdToggleOn, 0.5f, 1f, 0, 0, 1f)}
+                else {soundPlayer.play(soundIdToggleOff, 1f, 0.5f, 0, 0, 1f)}
+            }
             // For starting a drag
             //toggleButton.setOnLongClickListener(longClickListener)
             toggleButton.setOnTouchListener(onTouchListener)
