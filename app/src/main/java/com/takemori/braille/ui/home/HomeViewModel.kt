@@ -7,6 +7,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.takemori.braille.Braille
 import com.takemori.braille.Letter
+import java.util.Locale
 import kotlin.experimental.and
 import kotlin.experimental.inv
 import kotlin.experimental.or
@@ -37,24 +38,41 @@ class HomeViewModel : ViewModel() {
     val code001000: Byte = 60
     val numberCode: Byte = 60
     val letterCode: Byte = 48
+    val capitalCode: Byte = 32
+
 //    val code
 
 
     val lettersToString = Transformations.map(lettersList) { input: MutableList<Letter> ->
         val stringBuilder: StringBuilder  = StringBuilder()
         var mode: Byte = letterCode
+        var capitalMode: Boolean = false
+        var capitalNext: Boolean = false
 
         var i = 0
         var letter: Letter
-        while (i < input.size) {
+        val inputSize = input.size
+
+        // Evaluate the braille characters sequentially into a String
+        while (i < inputSize) {
             letter = input[i]
 
             if (letter.code == numberCode) {
+                // if the indicator is at the end of the string with nothing after it, display the indicator
+                if (i == inputSize - 1) stringBuilder.append("NUM_START")
                 mode = numberCode
                 i++
                 continue
             } else if (letter.code == letterCode) {
+                // if the indicator is at the end of the string with nothing after it, display the indicator
+                if (i == inputSize - 1) stringBuilder.append("LETTER_START")
                 mode = letterCode
+                i++
+                continue
+            } else if(letter.code == capitalCode) {
+                // Two capital signs in a row, means CAPS
+                if (capitalNext) capitalMode = true
+                capitalNext = true
                 i++
                 continue
             }
@@ -72,10 +90,25 @@ class HomeViewModel : ViewModel() {
             if (mode == letterCode) {
                 if (letter.letter == "SPACE") {
                     stringBuilder.append("_")
+                    capitalMode = false
                     i++
                     continue
                 } else {
-                    stringBuilder.append(letter.letter)
+                    var nextStr = letter.letter
+
+                    // Do Abbreviation evaluation
+
+
+                    // Capitalization handling
+                    if (capitalMode) {
+                        nextStr = nextStr.toUpperCase(Locale.ROOT)
+                    }else if (capitalNext) {
+                        nextStr = nextStr.capitalize(Locale.ROOT)
+                        capitalNext = false
+                    }
+
+                    // Add the processed string to the final string
+                    stringBuilder.append(nextStr)
                     i++
                     continue
                 }
@@ -83,9 +116,25 @@ class HomeViewModel : ViewModel() {
 
         }
 
+        fun checkIfPrevSpace(): Boolean {
+            return i == 0 || input[i - 1].letter == "SPACE"
+        }
+        fun checkIfNextSpace(): Boolean {
+            return i == inputSize - 1 || input[i+1].letter == "SPACE"
+        }
+        fun checkIfAlone(): Boolean {
+            return checkIfPrevSpace() && checkIfNextSpace()
+        }
+
         return@map stringBuilder.toString()
 //        return@map "test"
+
+
+
     }
+
+
+
 
 
     init {
