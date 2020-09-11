@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <item>
+    <code>000000</code>
+    <index>0</index>
+    <letter>SPACE</letter>
+
+    <unicode_code>U+2800</unicode_code>
+    <unicode_dots>⠀</unicode_dots>
+
+  </item>
+  <item>
+    <code>000001</code>
+    <index>1</index>
+    <letter>a</letter>
+
+    <unicode_code>U+2801</unicode_code>
+    <unicode_dots>⠁</unicode_dots>
+    <number>1</number>
+
+  </item>
+  <item>
+    <code>000010</code>
+    <index>2</index>
+    <letter>ea</letter>
+
+    <punctuation>,</punctuation>
+
+    <unicode_code>U+2802</unicode_code>
+    <unicode_dots>⠂</unicode_dots>
+    <number>,</number>
+    <delete>comma</delete>
+  </item>
+  <item>
+    <code>000011</code>
+    <index>3</index>
+    <letter>b</letter>
+
+    <one_letter_contract>but</one_letter_contract>
+
+    <unicode_code>U+2803</unicode_code>
+    <unicode_dots>⠃</unicode_dots>
+    <number>2</number>
+
+  </item>
+  <item>
+    <code>000100</code>
+    <index>4</index>
+
+    <unicode_code>U+2804</unicode_code>
+    <unicode_dots>⠄</unicode_dots>
+
+  </item>
+  <item>
+    <code>000101</code>
+    <index>5</index>
+    <letter>k</letter>
+    <initial_abbrev1>know</initial_abbrev1>
+
+    <one_letter_contract>knowledge</one_letter_contract>
+
+    <unicode_code>U+2805</unicode_code>
+    <unicode_dots>⠅</unicode_dots>
+
+  </item>
+  <item>
+    <code>000110</code>
+    <index>6</index>
+    <letter>bb</letter>
+
+    <one_letter_contract>be</one_letter_contract>
+    <one_letter_affix>be-</one_letter_affix>
+    <punctuation>;</punctuation>
+
+    <unicode_code>U+2806</unicode_code>
+    <unicode_dots>⠆</unicode_dots>
+
+  </item>
+  <item>
+    <code>000111</code>
+    <index>7</index>
+    <letter>l</letter>
+    <initial_abbrev1>lord</initial_abbrev1>
+
+    <final_abbrev2>ful</final_abbrev2>
+
+    <one_letter_contract>like</one_letter_contract>
+
+    <unicode_code>U+2807</unicode_code>
+    <unicode_dots>⠇</unicode_dots>
+
+  </item>
+  <item>
+    <code>001000</code>
+    <index>8</index>
+    <letter>ACCENT</letter>
+
+    <unicode_code>U+2808</unicode_code>
+    <unicode_dots>⠈</unicode_dots>
+
+  </item>
+  <item>
+    <code>001001</code>
+    <index>9</index>
+    <letter>c</letter>
+
+    <initial_abbrev3>cannot</initial_abbrev3>
+
+    <one_letter_contract>can</one_letter_contract>
+
+    <unicode_code>U+2809</unicode_code>
+    <unicode_dots>⠉</unicode_dots>
+    <number>3</number>
+
+  </item>
+  <item>
+    <code>001010</code>
+    <index>10</index>
+    <letter>i</letter>
+
+    <unicode_code>U+280A</unicode_code>
+    <unicode_dots>⠊</unicode_dots>
+    <number>9</number>
+
+  </item>
+  <item>
+    <code>001011</code>
+    <index>11</index>
+    <letter>f</letter>
+    <initial_abbrev1>father</initial_abbrev1>
+
+    <one_letter_contract>from</one_letter_contract>
+    <one_letter_affix>-self</one_letter_affix>
+
+    <unicode_code>U+280B</unicode_code>
+    <unicode_dots>⠋</unicode_dots>
+    <number>6</number>
+
+  </item>
+  <item>
+    <code>001100</code>
+    <index>12</index>
+    <letter>st</letter>
+
+    <one_letter_contract>still</one_letter_contract>
+
+    <punctuation>/</punctuation>
+
+    <unicode_code>U+280C</unicode_code>
+    <unicode_dots>⠌</unicode_dots>
+    <number>/</number>
+    <delete>slash</delete>
+  </item>
+  <item>
+    <code>001101</code>
+    <index>13</index>
+    <letter>m</letter>
+    <initial_abbrev1>mother</initial_abbrev1>
+
+    <initial_abbrev3>many</initial_abbrev3>
+
+    <one_letter_contract>more</one_letter_contract>
+
+    <unicode_code>U+280D</unicode_code>
+    <unicode_dots>⠍</unicode_dots>
+
+  </item>
+  <item>
+    <code>001110</code>
+    <index>14</index>
+    <letter>s</letter>
+    <initial_abbrev1>some</initial_abbrev1>
+
+    <initial_abbrev3>spirit</initial_abbrev3>
+    <final_abbrev1>less</final_abbrev1>
+    <final_abbrev2>ness</final_abbrev2>
+
+    <one_letter_contract>so</one_letter_contract>
+
+    <unicode_code>U+280E</unicode_code>
+    <unicode_dots>⠎</unicode_dots>
+
+  </item>
+  <item>
+    <code>001111</code>
+    <index>15</index>
+    <letter>p</letter>
+    <initial_abbrev1>part</initial_abbrev1>
+
+    <one_letter_contract>people</one_letter_contract>
+
+    <unicode_code>U+280F</unicode_code>
+    <unicode_dots>⠏</unicode_dots>
+
+  </item>
+  <item>
+    <code>010000</code>
+    <index>16</index>
+    <letter>INITIAL ABBR. 1</letter>
+
+    <unicode_code>U+2810</unicode_code>
+    <unicode_dots>⠐</unicode_dots>
+
+  </item>
+  <item>
+    <code>010001</code>
+    <index>17</index>
+    <letter>e</letter>
+    <initial_abbrev1>ever</initial_abbrev1>
+
+    <final_abbrev1>ance</final_abbrev1>
+    <final_abbrev2>ence</final_abbrev2>
+
+    <one_letter_contract>every</one_letter_contract>
+
+    <unicode_code>U+2811</unicode_code>
+    <unicode_dots>⠑</unicode_dots>
+    <number>5</number>
+
+  </item>
+  <item>
+    <code>010010</code>
+    <index>18</index>
+    <letter>cc</letter>
+
+    <one_letter_affix>con-</one_letter_affix>
+    <punctuation>:</punctuation>
+
+    <unicode_code>U+2812</unicode_code>
+    <unicode_dots>⠒</unicode_dots>
+
+  </item>
+  <item>
+    <code>010011</code>
+    <index>19</index>
+    <letter>h</letter>
+    <initial_abbrev1>here</initial_abbrev1>
+
+    <initial_abbrev3>had</initial_abbrev3>
+
+    <one_letter_contract>have</one_letter_contract>
+
+    <unicode_code>U+2813</unicode_code>
+    <unicode_dots>⠓</unicode_dots>
+    <number>8</number>
+
+  </item>
+  <item>
+    <code>010100</code>
+    <index>20</index>
+    <letter>in</letter>
+
+    <delete>*</delete>
+    <unicode_code>U+2814</unicode_code>
+    <unicode_dots>⠔</unicode_dots>
+
+  </item>
+  <item>
+    <code>010101</code>
+    <index>21</index>
+    <letter>o</letter>
+    <initial_abbrev1>one</initial_abbrev1>
+
+    <unicode_code>U+2815</unicode_code>
+    <unicode_dots>⠕</unicode_dots>
+
+  </item>
+  <item>
+    <code>010110</code>
+    <index>22</index>
+    <letter>ff</letter>
+
+    <punctuation>!</punctuation>
+
+    <unicode_code>U+2816</unicode_code>
+    <unicode_dots>⠖</unicode_dots>
+
+  </item>
+  <item>
+    <code>010111</code>
+    <index>23</index>
+    <letter>r</letter>
+    <initial_abbrev1>right</initial_abbrev1>
+
+    <one_letter_contract>rather</one_letter_contract>
+
+    <unicode_code>U+2817</unicode_code>
+    <unicode_dots>⠗</unicode_dots>
+
+  </item>
+  <item>
+    <code>011000</code>
+    <index>24</index>
+    <letter>INITIAL ABBR. 2</letter>
+
+    <unicode_code>U+2818</unicode_code>
+    <unicode_dots>⠘</unicode_dots>
+
+  </item>
+  <item>
+    <code>011001</code>
+    <index>25</index>
+    <letter>d</letter>
+    <initial_abbrev1>day</initial_abbrev1>
+
+    <final_abbrev1>ound</final_abbrev1>
+
+    <one_letter_contract>do</one_letter_contract>
+
+    <unicode_code>U+2819</unicode_code>
+    <unicode_dots>⠙</unicode_dots>
+    <number>4</number>
+
+  </item>
+  <item>
+    <code>011010</code>
+    <index>26</index>
+    <letter>j</letter>
+
+    <one_letter_contract>just</one_letter_contract>
+
+    <unicode_code>U+281A</unicode_code>
+    <unicode_dots>⠚</unicode_dots>
+    <number>0</number>
+
+  </item>
+  <item>
+    <code>011011</code>
+    <index>27</index>
+    <letter>g</letter>
+
+    <final_abbrev2>ong</final_abbrev2>
+
+    <one_letter_contract>go</one_letter_contract>
+
+    <unicode_code>U+281B</unicode_code>
+    <unicode_dots>⠛</unicode_dots>
+    <number>7</number>
+
+  </item>
+  <item>
+    <code>011100</code>
+    <index>28</index>
+    <letter>ar</letter>
+
+    <unicode_code>U+281C</unicode_code>
+    <unicode_dots>⠜</unicode_dots>
+
+  </item>
+  <item>
+    <code>011101</code>
+    <index>29</index>
+    <letter>n</letter>
+    <initial_abbrev1>name</initial_abbrev1>
+
+    <final_abbrev1>sion</final_abbrev1>
+    <final_abbrev2>tion</final_abbrev2>
+    <final_abbrev3>ation</final_abbrev3>
+    <one_letter_contract>not</one_letter_contract>
+
+    <unicode_code>U+281D</unicode_code>
+    <unicode_dots>⠝</unicode_dots>
+
+  </item>
+  <item>
+    <code>011110</code>
+    <index>30</index>
+    <letter>t</letter>
+    <initial_abbrev1>time</initial_abbrev1>
+
+    <final_abbrev1>ount</final_abbrev1>
+    <final_abbrev2>ment</final_abbrev2>
+
+    <one_letter_contract>that</one_letter_contract>
+
+    <unicode_code>U+281E</unicode_code>
+    <unicode_dots>⠞</unicode_dots>
+
+  </item>
+  <item>
+    <code>011111</code>
+    <index>31</index>
+    <letter>q</letter>
+    <initial_abbrev1>question</initial_abbrev1>
+
+    <one_letter_contract>quite</one_letter_contract>
+
+    <unicode_code>U+281F</unicode_code>
+    <unicode_dots>⠟</unicode_dots>
+
+  </item>
+  <item>
+    <code>100000</code>
+    <index>32</index>
+    <letter>CAPS OR FINAL ABBR. 3</letter>
+
+    <unicode_code>U+2820</unicode_code>
+    <unicode_dots>⠠</unicode_dots>
+
+  </item>
+  <item>
+    <code>100001</code>
+    <index>33</index>
+    <letter>ch</letter>
+    <initial_abbrev1>character</initial_abbrev1>
+
+    <one_letter_contract>child</one_letter_contract>
+
+    <unicode_code>U+2821</unicode_code>
+    <unicode_dots>⠡</unicode_dots>
+
+  </item>
+  <item>
+    <code>100010</code>
+    <index>34</index>
+    <letter>en</letter>
+
+    <one_letter_contract>enough</one_letter_contract>
+
+    <unicode_code>U+2822</unicode_code>
+    <unicode_dots>⠢</unicode_dots>
+
+  </item>
+  <item>
+    <code>100011</code>
+    <index>35</index>
+    <letter>gh</letter>
+
+    <unicode_code>U+2823</unicode_code>
+    <unicode_dots>⠣</unicode_dots>
+
+  </item>
+  <item>
+    <code>100100</code>
+    <index>36</index>
+    <letter>_</letter>
+
+    <punctuation>_</punctuation>
+
+    <unicode_code>U+2824</unicode_code>
+    <unicode_dots>⠤</unicode_dots>
+
+  </item>
+  <item>
+    <code>100101</code>
+    <index>37</index>
+    <letter>u</letter>
+    <initial_abbrev1>under</initial_abbrev1>
+    <initial_abbrev2>upon</initial_abbrev2>
+
+    <one_letter_contract>us</one_letter_contract>
+
+    <unicode_code>U+2825</unicode_code>
+    <unicode_dots>⠥</unicode_dots>
+
+  </item>
+  <item>
+    <code>100110</code>
+    <index>38</index>
+    <letter>?</letter>
+
+    <one_letter_contract>his</one_letter_contract>
+
+    <punctuation>?</punctuation>
+    <delete>"</delete>
+    <unicode_code>U+2826</unicode_code>
+    <unicode_dots>⠦</unicode_dots>
+
+  </item>
+  <item>
+    <code>100111</code>
+    <index>39</index>
+    <letter>v</letter>
+
+    <one_letter_contract>very</one_letter_contract>
+
+    <unicode_code>U+2827</unicode_code>
+    <unicode_dots>⠧</unicode_dots>
+
+  </item>
+  <item>
+    <code>101000</code>
+    <index>40</index>
+    <letter>FINAL ABBR. 1</letter>
+
+    <unicode_code>U+2828</unicode_code>
+    <unicode_dots>⠨</unicode_dots>
+    <number>.</number>
+    <delete>decimal</delete>
+  </item>
+  <item>
+    <code>101001</code>
+    <index>41</index>
+    <letter>sh</letter>
+
+    <one_letter_contract>shall</one_letter_contract>
+
+    <unicode_code>U+2829</unicode_code>
+    <unicode_dots>⠩</unicode_dots>
+
+  </item>
+  <item>
+    <code>101010</code>
+    <index>42</index>
+    <letter>ow</letter>
+
+    <unicode_code>U+282A</unicode_code>
+    <unicode_dots>⠪</unicode_dots>
+
+  </item>
+  <item>
+    <code>101011</code>
+    <index>43</index>
+    <letter>ed</letter>
+
+    <unicode_code>U+282B</unicode_code>
+    <unicode_dots>⠫</unicode_dots>
+
+  </item>
+  <item>
+    <code>101100</code>
+    <index>44</index>
+    <letter>ing</letter>
+
+    <unicode_code>U+282C</unicode_code>
+    <unicode_dots>⠬</unicode_dots>
+
+  </item>
+  <item>
+    <code>101101</code>
+    <index>45</index>
+    <letter>x</letter>
+
+    <one_letter_contract>it</one_letter_contract>
+
+    <unicode_code>U+282D</unicode_code>
+    <unicode_dots>⠭</unicode_dots>
+
+  </item>
+  <item>
+    <code>101110</code>
+    <index>46</index>
+    <letter>the</letter>
+    <initial_abbrev1>there</initial_abbrev1>
+    <initial_abbrev2>these</initial_abbrev2>
+    <initial_abbrev3>their</initial_abbrev3>
+
+    <unicode_code>U+282E</unicode_code>
+    <unicode_dots>⠮</unicode_dots>
+
+  </item>
+  <item>
+    <code>101111</code>
+    <index>47</index>
+    <letter>and</letter>
+
+    <unicode_code>U+282F</unicode_code>
+    <unicode_dots>⠯</unicode_dots>
+
+  </item>
+  <item>
+    <code>110000</code>
+    <index>48</index>
+    <letter>FINAL ABBR. 2</letter>
+
+    <unicode_code>U+2830</unicode_code>
+    <unicode_dots>⠰</unicode_dots>
+
+  </item>
+  <item>
+    <code>110001</code>
+    <index>49</index>
+    <letter>wh</letter>
+    <initial_abbrev1>where</initial_abbrev1>
+    <initial_abbrev2>whose</initial_abbrev2>
+
+    <one_letter_contract>which</one_letter_contract>
+
+    <unicode_code>U+2831</unicode_code>
+    <unicode_dots>⠱</unicode_dots>
+
+  </item>
+  <item>
+    <code>110010</code>
+    <index>50</index>
+    <letter>dd</letter>
+
+    <one_letter_affix>dis-</one_letter_affix>
+    <punctuation>.</punctuation>
+
+    <unicode_code>U+2832</unicode_code>
+    <unicode_dots>⠲</unicode_dots>
+
+  </item>
+  <item>
+    <code>110011</code>
+    <index>51</index>
+    <letter>ou</letter>
+    <initial_abbrev1>ought</initial_abbrev1>
+
+    <one_letter_contract>out</one_letter_contract>
+
+    <unicode_code>U+2833</unicode_code>
+    <unicode_dots>⠳</unicode_dots>
+
+  </item>
+  <item>
+    <code>110100</code>
+    <index>52</index>
+    <letter>"</letter>
+
+    <one_letter_contract>was</one_letter_contract>
+
+    <unicode_code>U+2834</unicode_code>
+    <unicode_dots>⠴</unicode_dots>
+
+  </item>
+  <item>
+    <code>110101</code>
+    <index>53</index>
+    <letter>z</letter>
+
+    <one_letter_contract>as</one_letter_contract>
+
+    <unicode_code>U+2835</unicode_code>
+    <unicode_dots>⠵</unicode_dots>
+
+  </item>
+  <item>
+    <code>110110</code>
+    <index>54</index>
+    <letter>gg</letter>
+
+    <one_letter_contract>were</one_letter_contract>
+
+    <punctuation>()</punctuation>
+
+    <unicode_code>U+2836</unicode_code>
+    <unicode_dots>⠶</unicode_dots>
+
+  </item>
+  <item>
+    <code>110111</code>
+    <index>55</index>
+    <letter>of</letter>
+
+    <unicode_code>U+2837</unicode_code>
+    <unicode_dots>⠷</unicode_dots>
+
+  </item>
+  <item>
+    <code>111000</code>
+    <index>56</index>
+    <letter>INITIAL ABBR. 3</letter>
+
+    <unicode_code>U+2838</unicode_code>
+    <unicode_dots>⠸</unicode_dots>
+
+  </item>
+  <item>
+    <code>111001</code>
+    <index>57</index>
+    <letter>th</letter>
+    <initial_abbrev1>through</initial_abbrev1>
+    <initial_abbrev2>those</initial_abbrev2>
+
+    <one_letter_contract>this</one_letter_contract>
+
+    <unicode_code>U+2839</unicode_code>
+    <unicode_dots>⠹</unicode_dots>
+
+  </item>
+  <item>
+    <code>111010</code>
+    <index>58</index>
+    <letter>w</letter>
+    <initial_abbrev1>work</initial_abbrev1>
+    <initial_abbrev2>word</initial_abbrev2>
+    <initial_abbrev3>world</initial_abbrev3>
+
+    <one_letter_contract>will</one_letter_contract>
+
+    <unicode_code>U+283A</unicode_code>
+    <unicode_dots>⠺</unicode_dots>
+
+  </item>
+  <item>
+    <code>111011</code>
+    <index>59</index>
+    <letter>er</letter>
+
+    <unicode_code>U+283B</unicode_code>
+    <unicode_dots>⠻</unicode_dots>
+
+  </item>
+  <item>
+    <code>111100</code>
+    <index>60</index>
+    <letter>NUMBER_SIGN</letter>
+
+    <unicode_code>U+283C</unicode_code>
+    <unicode_dots>⠼</unicode_dots>
+    <number>NUMBER_SIGN</number>
+
+  </item>
+  <item>
+    <code>111101</code>
+    <index>61</index>
+    <letter>y</letter>
+    <initial_abbrev1>young</initial_abbrev1>
+
+    <final_abbrev2>ity</final_abbrev2>
+    <final_abbrev3>ally</final_abbrev3>
+    <one_letter_contract>you</one_letter_contract>
+
+    <unicode_code>U+283D</unicode_code>
+    <unicode_dots>⠽</unicode_dots>
+
+  </item>
+  <item>
+    <code>111110</code>
+    <index>62</index>
+    <letter>with</letter>
+
+    <unicode_code>U+283E</unicode_code>
+    <unicode_dots>⠾</unicode_dots>
+
+  </item>
+  <item>
+    <code>111111</code>
+    <index>63</index>
+    <letter>for</letter>
+
+    <unicode_code>U+283F</unicode_code>
+    <unicode_dots>⠿</unicode_dots>
+
+  </item>
+</resources>

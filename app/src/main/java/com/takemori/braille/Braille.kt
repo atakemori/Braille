@@ -1,6 +1,5 @@
 package com.takemori.braille
 
-import android.content.res.Resources
 import android.content.res.XmlResourceParser
 import org.xmlpull.v1.XmlPullParser
 
@@ -19,7 +18,7 @@ class Braille {
 
     private fun loadData(): MutableList<Letter> {
         val listOfLetter: MutableList<Letter> = ArrayList<Letter>(64)
-        val xpp: XmlResourceParser = App.getContext().resources.getXml(R.xml.braille)
+        val xpp: XmlResourceParser = App.getContext().resources.getXml(R.xml.braille_v2)
         xpp.next()
         var eventType: Int = xpp.eventType
 
@@ -31,11 +30,18 @@ class Braille {
             var code: Byte = 0
             var letter: String = ""
             var index: Int = -1
+            var unicodeCode: String = "U+283F"
+            var unicodeDots: String = "⠿"
+            var initialAbbrev1: String? = null
+            var initialAbbrev2: String? = null
+            var initialAbbrev3: String? = null
+            var finalAbbrev1: String? = null
+            var finalAbbrev2: String? = null
+            var finalAbbrev3: String? = null
+            var oneLetterContract: String? = null
+            var oneLetterAffix: String? = null
             var punctuation: String? = null
-            var abrevSolo: String? = null
-            var abrev1: String? = null
-            var abrev2: String? = null
-            var number: Int? = null
+            var number: String? = null
 
             fun readText(): String?{
                 var readText: String? = null
@@ -48,35 +54,58 @@ class Braille {
             while ((eventType != XmlPullParser.END_TAG) || xpp.name.toString() != "item") {
                 if (eventType == XmlPullParser.START_TAG) {
                     when (xpp.name) {
+                        "code" -> {
+                            code = readText()?.toByte(2)?:-1
+                        }
                         "letter" -> {
                             letter = readText()?:""
                         }
                         "index" -> {
                             index = readText()?.toInt()?:-1
                         }
-                        "code" -> {
-                            code = readText()?.toByte(2)?:-1
+                        "unicode_code" -> {
+                            unicodeCode = readText()?:""
+                        }
+                        "unicode_dots" -> {
+                            unicodeDots = readText()?:""
+                        }
+                        "initial_abbrev1" -> {
+                            initialAbbrev1 = readText()?:""
+                        }
+                        "initial_abbrev2" -> {
+                            initialAbbrev2 = readText()?:""
+                        }
+                        "initial_abbrev3" -> {
+                            initialAbbrev3 = readText()?:""
+                        }
+                        "final_abbrev1" -> {
+                            finalAbbrev1 = readText()?:""
+                        }
+                        "final_abbrev2" -> {
+                            finalAbbrev2 = readText()?:""
+                        }
+                        "final_abbrev3" -> {
+                            finalAbbrev3 = readText()?:""
+                        }
+                        "one_letter_contract" -> {
+                            oneLetterContract = readText()?:""
+                        }
+                        "one_letter_affix" -> {
+                            oneLetterAffix = readText()?:""
                         }
                         "punctuation" -> {
                             punctuation = readText()?:""
                         }
-                        "abrevSolo" -> {
-                            abrevSolo = readText()?:""
-                        }
-                        "abrev1" -> {
-                            abrev1 = readText()?:""
-                        }
-                        "abrev2" -> {
-                            abrev2 = readText()?:""
-                        }
                         "number" -> {
-                            number = readText()?.toInt()
+                            number = readText()?:""
                         }
                     }
                 }
                 eventType = xpp.next() //potentially another tag start
             }
-            return Letter(code, letter, index, punctuation, abrevSolo, abrev1, abrev2, number)
+            return Letter(code, letter, index, unicodeCode, unicodeDots, initialAbbrev1,
+                    initialAbbrev2, initialAbbrev3, finalAbbrev1, finalAbbrev2, finalAbbrev3,
+                    oneLetterContract, oneLetterAffix, punctuation, number)
         }
 
         while (eventType != XmlPullParser.END_DOCUMENT) {
