@@ -184,7 +184,7 @@ class Braille {
                 return i == inputSize - 1 || input[i+1].letter == "SPACE"
             }
             fun checkIfKSpace(k: Int): Boolean {
-                if (i + k < 0 || i+k >= inputSize - 1) return true
+                if (i + k < 0 || i+k > inputSize - 1) return true
                 else {
                     return input[i+k].letter == "SPACE"
                 }
