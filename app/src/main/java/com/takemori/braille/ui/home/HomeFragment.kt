@@ -100,6 +100,7 @@ class HomeFragment : Fragment() {
         // Bind additional buttons to add and remove letters from main string list
         binding.buttonClear.setOnClickListener { removeLetter() }
         binding.addLetterButton.setOnClickListener { addLetter()}
+        binding.toggleButtonShowAsDots.setOnCheckedChangeListener { buttonView, isChecked ->  homeViewModel.setShowAsDots(isChecked)}
 
 //        binding.buttons.toggleButton6.isHapticFeedbackEnabled = true
 //        binding.buttons.toggleButton6.setOnCheckedChangeListener { buttonView, isChecked ->

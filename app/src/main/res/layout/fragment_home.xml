@@ -8,7 +8,7 @@
             name="homeFragmentViewModel"
             type="com.takemori.braille.ui.home.HomeViewModel" />
     </data>
-    
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,9 +19,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
             android:text="@{homeFragmentViewModel.lettersToString}"
+            android:textAlignment="center"
+            android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
             app:layout_constraintStart_toStartOf="@+id/guideline_left"
@@ -38,13 +38,14 @@
             app:layout_constraintStart_toStartOf="@+id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/letters_to_string"
             app:layout_constraintVertical_bias="0.50" />
-    
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".2" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_right"
             android:layout_width="wrap_content"
@@ -53,23 +54,25 @@
             app:layout_constraintGuide_percent=".8" />
 
         <ToggleButton
-            android:id="@+id/toggleButtonTEST"
+            android:id="@+id/toggleButtonShowAsDots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="ToggleButton"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonClear"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left" />
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="13dp"
+            android:textOff="Switch to ⠿"
+            android:textOn="Switch to Text"
+            app:layout_constraintBottom_toTopOf="@+id/letters_to_string"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="35dp"
             android:background="@android:drawable/ic_input_delete"
-            app:layout_constraintBottom_toTopOf="@+id/buttons"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_right"
+            app:layout_constraintTop_toTopOf="@+id/letters_to_string"
             tools:background="@android:drawable/ic_input_delete" />
 
         <TextView

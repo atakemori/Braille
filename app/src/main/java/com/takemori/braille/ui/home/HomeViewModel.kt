@@ -35,8 +35,19 @@ class HomeViewModel : ViewModel() {
         get() = _lettersList
 
     val lettersToString = Transformations.map(lettersList) { input: MutableList<Letter> ->
-        return@map Braille.translateLetters(input)
+        if (showAsDots.value!!) {
+            val stringBuilder: StringBuilder = StringBuilder()
+            for (letter:Letter in input) {
+                stringBuilder.append(letter.unicode_dots)
+            }
+            return@map stringBuilder.toString()
+        }
+        else return@map Braille.translateLetters(input)
     }
+
+    private val _showAsDots = MutableLiveData<Boolean>()
+    val showAsDots: LiveData<Boolean>
+        get() = _showAsDots
 
 
 
@@ -46,6 +57,7 @@ class HomeViewModel : ViewModel() {
         _word.value = "la"
         _brailleByte.value = 0b0
         _lettersList.value = mutableListOf<Letter>()
+        _showAsDots.value = false
     }
 
 
@@ -101,6 +113,15 @@ class HomeViewModel : ViewModel() {
             _lettersList.value?.removeLast()
             _lettersList.notifyObserver()
         }
+    }
+
+    /**
+     * Switch text display mode and then re-trigger
+     * the string transformer
+     */
+    fun setShowAsDots(isChecked: Boolean) {
+        _showAsDots.value = isChecked
+        _lettersList.notifyObserver()
     }
 
 }
