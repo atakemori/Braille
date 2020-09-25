@@ -1,11 +1,12 @@
 package com.takemori.braille.ui.home
 
+import android.animation.AnimatorInflater
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipDescription
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Point
+import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.media.AudioManager
 import android.media.SoundPool
@@ -14,12 +15,19 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import android.view.*
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.Interpolator
+import android.widget.ImageView
 import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
+import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.takemori.braille.R
+import com.takemori.braille.R.interpolator
 import com.takemori.braille.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -43,11 +51,174 @@ class HomeFragment : Fragment() {
         //soundPlayer = null
     }
 
+
+    var buttonX: Float = 100f
+    var buttonY: Float = 100f
+    var mainTextRect: Rect = Rect()
+    val buttonsLayoutRect: Rect = Rect()
+
+
+    @ExperimentalStdlibApi
     override fun onStart() {
         super.onStart()
         soundPlayer = SoundPool(3, AudioManager.USE_DEFAULT_STREAM_TYPE, 0)
         soundIdToggleOn = soundPlayer.load(this.context, R.raw.blip_fs5, 1)
         soundIdToggleOff = soundPlayer.load(this.context, R.raw.blip_d5, 1)
+
+
+        // Assign the bindings and animations to all buttons
+        Log.i("HomeFragment.kt", "Binding the buttons")
+        val buttonBounceAnimation: Animation = AnimationUtils.loadAnimation(this.context, R.anim.button_bounce_v2)
+        for (toggleButton: ToggleButton in listOfBrailleButtons) {
+
+            // Use the button's xml assigned tag as a reference for functions requiring a unique int
+            val buttonNum: Int = toggleButton.tag.toString().toInt()
+
+            val movingView: ImageView = binding.homeMainLayout.getViewById(buttonNum + 5000) as ImageView
+
+
+        }
+    }
+
+
+
+
+
+    @ExperimentalStdlibApi
+    @RequiresApi(Build.VERSION_CODES.N)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        val buttonBounceAnimation: Animation = AnimationUtils.loadAnimation(this.context, R.anim.button_bounce_v2)
+
+        // Assign the bindings and animations to all buttons
+        Log.i("HomeFragment.kt", "Binding the buttons")
+        for (toggleButton: ToggleButton in listOfBrailleButtons) {
+            // Use the button's xml assigned tag as a reference for functions requiring a unique int
+            val buttonNum: Int = toggleButton.tag.toString().toInt()
+
+//            val buttonX = toggleButton.x + buttonsLayoutRect.left
+//            val buttonY = toggleButton.y + buttonsLayoutRect.top
+
+            // A view that gets animated over the button along a path to the main text
+            val movingView:ImageView = ImageView(this.context).apply {
+                visibility = View.GONE
+                isClickable = false
+                id = buttonNum + 5000
+                setImageResource(R.drawable.dot_off)
+                adjustViewBounds = true
+                layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+//                x = toggleButton.x + binding.buttons.brailleButtonsArray.x
+//                y = toggleButton.y + binding.buttons.brailleButtonsArray.y
+                Log.i("HomeFragment.kt", "movingView initial X: " + toggleButton.x +", " + buttonsLayoutRect.left)
+//                x = toggleButton.x + buttonsLayoutRect.left
+//                y = buttonY
+
+            }
+            binding.homeMainLayout.addView(movingView)
+
+
+
+
+            Log.i("HomeFragment.kt", "onStart location when binding: " + toggleButton.x +", " + buttonsLayoutRect.left)
+
+            // Add OnChecked listeners for updating viewModel data and animations once the buttons are toggled
+            toggleButton.setOnCheckedChangeListener { view, isChecked ->
+                homeViewModel.buttonFlip(buttonNum, isChecked)
+
+
+                // Do the work regarding view and button coordinates for animation paths.
+                // Attempting to do in the onCreate methods did not work since the Views
+                // had no position components and were not shown yet.
+                binding.lettersToString.getGlobalVisibleRect(mainTextRect)
+                binding.buttons.getGlobalVisibleRect(buttonsLayoutRect)
+                Log.i("HomeFragment.kt", "rectangles in onStart" + buttonsLayoutRect.toString())
+
+                val globalOffset: Point = Point()
+                val tempMainLayoutRect: Rect = Rect()
+                binding.homeMainLayout.getGlobalVisibleRect(tempMainLayoutRect, globalOffset)
+                Log.i("HomeFragment.kt", "MAIN_LAYOUT_RECT: " + tempMainLayoutRect.toString())
+                Log.i("HomeFragment.kt", "MAIN_LAYOUT_OFFSET: " + globalOffset.toString())
+
+                val buttonX = view.x + buttonsLayoutRect.left
+                val buttonY = view.y + buttonsLayoutRect.top  - globalOffset.y
+
+                //Animate the button check
+                if (isChecked) {
+                    (AnimatorInflater.loadAnimator(this.context, R.animator.button_bounce_checkon_property_animator) as AnimatorSet).apply {
+                        setTarget(toggleButton)
+                        start()
+                    }
+                } else {
+                    (AnimatorInflater.loadAnimator(this.context, R.animator.button_bounce_checkoff_property_animator) as AnimatorSet).apply {
+                        setTarget(toggleButton)
+                        start()
+                    }
+                }
+
+                // Only play a sound if the checked change was triggered by pressing the button.
+                //  This way adding or clearing the cells will not play several sounds
+                if (view.isPressed) {
+                    if (isChecked) {
+                        soundPlayer.play(soundIdToggleOn, 0.5f, 1f, 0, 0, 1f)
+                    } else {
+                        soundPlayer.play(soundIdToggleOff, 1f, 0.5f, 0, 0, 1f)
+                    }
+                }
+
+                // send a path animation if the button is toggled to off without pressing that button
+                if (!isChecked && !view.isPressed) {
+                    // Reset the movingView
+                    movingView.scaleX = 1.0f
+                    movingView.scaleY = 1.0f
+                    //                    movingView.x = toggleButton.x + binding.buttons.brailleButtonsArray.x
+                    //                    movingView.y = toggleButton.y + binding.buttons.brailleButtonsArray.y
+                    movingView.x = buttonX
+                    movingView.y = buttonY
+
+
+                    movingView.visibility = View.VISIBLE
+
+
+                    Log.i("HomeFragment.kt", "buttonX:" + buttonX + ", buttonY: " + buttonY)
+                    Log.i("HomeFragment.kt", "ToggleButton relative Coords:" + toggleButton.x + ", " + toggleButton.y)
+                    // Sets the path the movingView will follow upwards
+                    val path = Path().apply {
+                        moveTo(buttonX, buttonY)
+                        //                        quadTo(700f, 400f, binding.lettersToString.x + (binding.lettersToString.width / 2), binding.lettersToString.y + (binding.lettersToString.height / 2))
+                        //                        quadTo(700f, 400f, mainTextRect.exactCenterX(), mainTextRect.exactCenterY())
+
+                        quadTo(1000f, 300f, mainTextRect.exactCenterX() - (toggleButton.width / 2), mainTextRect.exactCenterY() - globalOffset.y - (toggleButton.height / 2))
+                    }
+
+
+                    val viewMask: ImageView = binding.homeMainLayout.findViewById(buttonNum + 5000)
+
+                    val pathAnimator = ObjectAnimator.ofFloat(viewMask, View.X, View.Y, path)
+                    pathAnimator.interpolator = DecelerateInterpolator(1.5f)
+
+                    val scaleXAnimator = ObjectAnimator.ofFloat(viewMask, View.SCALE_X, 0.0f)
+                    val scaleYAnimator = ObjectAnimator.ofFloat(viewMask, View.SCALE_Y, 0.0f)
+
+                    val animatorSet: AnimatorSet = AnimatorSet()
+                    animatorSet.playTogether(pathAnimator, scaleXAnimator, scaleYAnimator)
+                    animatorSet.duration = 5000
+                    animatorSet.doOnEnd { viewMask.visibility = View.GONE }
+                    animatorSet.start()
+
+                }
+
+                // For starting a drag
+                //toggleButton.setOnLongClickListener(longClickListener)
+                toggleButton.setOnTouchListener(onTouchListener)
+
+                // For responding to a drag entering the button
+                toggleButton.setOnDragListener(dragListener)
+            }
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -74,34 +245,20 @@ class HomeFragment : Fragment() {
 
         // Put all bindings into a list for easily assigning them listeners
         listOfBrailleButtons = listOf(
-                binding.buttons.toggleButton1,
-                binding.buttons.toggleButton4,
-                binding.buttons.toggleButton2,
-                binding.buttons.toggleButton5,
-                binding.buttons.toggleButton3,
-                binding.buttons.toggleButton6
+                binding.buttonsInclude.toggleButton1,
+                binding.buttonsInclude.toggleButton4,
+                binding.buttonsInclude.toggleButton2,
+                binding.buttonsInclude.toggleButton5,
+                binding.buttonsInclude.toggleButton3,
+                binding.buttonsInclude.toggleButton6
         )
-        Log.i("HomeFragment.kt", "Binding the buttons")
-        for (toggleButton: ToggleButton in listOfBrailleButtons) {
-            val buttonNum: Int = toggleButton.tag.toString().toInt()
-            // Add listeners for updating viewModel data once the buttons are toggled
-            toggleButton.setOnCheckedChangeListener { view, isChecked ->
-                homeViewModel.buttonFlip(buttonNum, isChecked)
-                if (isChecked) {soundPlayer.play(soundIdToggleOn, 0.5f, 1f, 0, 0, 1f)}
-                else {soundPlayer.play(soundIdToggleOff, 1f, 0.5f, 0, 0, 1f)}
-            }
-            // For starting a drag
-            //toggleButton.setOnLongClickListener(longClickListener)
-            toggleButton.setOnTouchListener(onTouchListener)
-            // For responding to a drag entering the button
-            toggleButton.setOnDragListener(dragListener)
-        }
+
 
         // Bind additional buttons to add and remove letters from main string list
         binding.buttonClear.setOnClickListener { removeLetter() }
         binding.addLetterButton.setOnClickListener { addLetter()}
         binding.toggleButtonShowAsDots.setOnCheckedChangeListener { buttonView, isChecked ->  homeViewModel.setShowAsDots(isChecked)}
-
+        binding.clearCellsButton.setOnClickListener { clearButtons() }
 //        binding.buttons.toggleButton6.isHapticFeedbackEnabled = true
 //        binding.buttons.toggleButton6.setOnCheckedChangeListener { buttonView, isChecked ->
 //            if (isChecked) { buttonView.performHapticFeedback(LONG_PRESS) }

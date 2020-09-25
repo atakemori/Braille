@@ -7,4 +7,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BrailleButton" parent="AppTheme">
+
+    </style>
+
+    <style name="MyLargeText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">28sp</item>
+    </style>
+
 </resources>

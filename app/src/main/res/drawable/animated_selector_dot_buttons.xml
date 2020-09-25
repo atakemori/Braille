@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/not_checked"
+        android:state_checked="false"
+        android:drawable="@drawable/dot_off"/>
+    <item android:id="@+id/checked"
+        android:state_checked="true"
+        android:drawable="@drawable/dot_on"/>
+
+
+    <transition android:fromId="@+id/not_checked"
+        android:toId="@id/checked">
+        <animation-list>
+            <item android:duration="200" android:drawable="@drawable/dot_off"/>
+            <item android:duration="200" android:drawable="@android:color/black"/>
+            <item android:duration="200" android:drawable="@android:color/white"/>
+            <item android:duration="200" android:drawable="@android:color/black"/>
+            <item android:duration="200" android:drawable="@drawable/dot_on"/>
+
+        </animation-list>
+    </transition>
+</animated-selector>
