@@ -2,6 +2,7 @@ package com.takemori.braille.ui.home
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
+import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.ClipData
@@ -15,9 +16,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import android.view.*
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.view.animation.DecelerateInterpolator
+import android.view.animation.*
 import android.view.animation.Interpolator
 import android.widget.ImageView
 import android.widget.ToggleButton
@@ -64,20 +63,6 @@ class HomeFragment : Fragment() {
         soundPlayer = SoundPool(3, AudioManager.USE_DEFAULT_STREAM_TYPE, 0)
         soundIdToggleOn = soundPlayer.load(this.context, R.raw.blip_fs5, 1)
         soundIdToggleOff = soundPlayer.load(this.context, R.raw.blip_d5, 1)
-
-
-        // Assign the bindings and animations to all buttons
-        Log.i("HomeFragment.kt", "Binding the buttons")
-        val buttonBounceAnimation: Animation = AnimationUtils.loadAnimation(this.context, R.anim.button_bounce_v2)
-        for (toggleButton: ToggleButton in listOfBrailleButtons) {
-
-            // Use the button's xml assigned tag as a reference for functions requiring a unique int
-            val buttonNum: Int = toggleButton.tag.toString().toInt()
-
-            val movingView: ImageView = binding.homeMainLayout.getViewById(buttonNum + 5000) as ImageView
-
-
-        }
     }
 
 
@@ -96,6 +81,13 @@ class HomeFragment : Fragment() {
         for (toggleButton: ToggleButton in listOfBrailleButtons) {
             // Use the button's xml assigned tag as a reference for functions requiring a unique int
             val buttonNum: Int = toggleButton.tag.toString().toInt()
+
+            // For starting a drag
+            //toggleButton.setOnLongClickListener(longClickListener)
+            toggleButton.setOnTouchListener(onTouchListener)
+
+            // For responding to a drag entering the button
+            toggleButton.setOnDragListener(dragListener)
 
 //            val buttonX = toggleButton.x + buttonsLayoutRect.left
 //            val buttonY = toggleButton.y + buttonsLayoutRect.top
@@ -163,9 +155,10 @@ class HomeFragment : Fragment() {
                 //  This way adding or clearing the cells will not play several sounds
                 if (view.isPressed) {
                     if (isChecked) {
-                        soundPlayer.play(soundIdToggleOn, 0.5f, 1f, 0, 0, 1f)
+//                        soundPlayer.play(soundIdToggleOn, 0.5f, 1f, 0, 0, 1f)
+                        playSound(soundIdToggleOn)
                     } else {
-                        soundPlayer.play(soundIdToggleOff, 1f, 0.5f, 0, 0, 1f)
+                        playSound(soundIdToggleOff)
                     }
                 }
 
@@ -202,22 +195,28 @@ class HomeFragment : Fragment() {
 
                     val scaleXAnimator = ObjectAnimator.ofFloat(viewMask, View.SCALE_X, 0.0f)
                     val scaleYAnimator = ObjectAnimator.ofFloat(viewMask, View.SCALE_Y, 0.0f)
+                    scaleXAnimator.interpolator = AnticipateInterpolator(0.20f)
+                    scaleYAnimator.interpolator = AnticipateInterpolator(0.20f) //scaleXAnimator.interpolator
+
+                    //val toWhiteAnimator = ObjectAnimator.ofObject(viewMask, "backgroundColor", ArgbEvaluator(), 0xFFFFFFFF, 0xFFFFFFFF)
 
                     val animatorSet: AnimatorSet = AnimatorSet()
                     animatorSet.playTogether(pathAnimator, scaleXAnimator, scaleYAnimator)
-                    animatorSet.duration = 5000
+                    animatorSet.duration = 500
                     animatorSet.doOnEnd { viewMask.visibility = View.GONE }
                     animatorSet.start()
 
                 }
 
-                // For starting a drag
-                //toggleButton.setOnLongClickListener(longClickListener)
-                toggleButton.setOnTouchListener(onTouchListener)
 
-                // For responding to a drag entering the button
-                toggleButton.setOnDragListener(dragListener)
             }
+        }
+    }
+
+    private fun playSound(soundId: Int) {
+        // Add a field later for options page if playing sounds
+        if (true) {
+            soundPlayer.play(soundId, 1f, 1f, 0, 0, 1f)
         }
     }
 
@@ -360,7 +359,6 @@ class HomeFragment : Fragment() {
                 it.toggle()
                 val isChecked: Boolean = it.isChecked
                 val buttonStartedDrag: Int = (it.tag as String).toInt()
-
 
                 // Create a new ClipData.
                 // This is done in two steps to provide clarity. The convenience method
