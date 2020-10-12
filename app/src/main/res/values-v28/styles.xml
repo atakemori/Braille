@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="grey_layout.button_icons" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@color/colorTransparentDark</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:buttonCornerRadius">4dp</item>
+
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+
+
+    </style>
+</resources>

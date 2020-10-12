@@ -1,13 +1,85 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="BrailleButton" parent="AppTheme">
+    <style name="grey_layout" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorBackground">@color/colorMainGrey</item>
+        <item name="colorPrimaryDark">#615B6E</item>
+        <item name="colorAccent">#A37EED</item>
+        <item name="colorPrimary">#795DB0</item>
+        <item name="colorSurface">#D2C5ED</item>
+
+        <item name="android:textColor">@color/colorText</item>
+
+        <item name="backgroundColor">#FFFFFF</item>
+        <item name="background">#FFFFFF</item>
+        <item name="android:background">#FFFFFF</item>
+
+    </style>
+
+
+    <style name="grey_layout.array_buttons" parent="android:Widget.CompoundButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/ic_braille_toggle_button</item>
+        <item name="android:drawSelectorOnTop">true</item>
+        <item name="layout_constraintDimensionRatio">1:1</item>
+
+        <item name="android:text">"ToggleButton"</item>
+        <item name="android:textOff">" "</item>
+        <item name="android:textOn">"⬤"</item>
+
+    </style>
+
+
+    <style name="grey_layout.button_icons" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+    
+    <style name="grey_layout.background_drawables">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+
+    </style>
+    
+
+    <style name="grey_layout.button_icons.with_background">
+        <item name="android:background">@drawable/button_transparent_background</item>
+    </style>
+
+
+    <style name="grey_layout.text_view" parent="Widget.MaterialComponents.TextView">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textViewStyle">@style/grey_layout.large_text</item>
+    </style>
+
+    <style name="grey_layout.text_view.large">
+        <item name="android:textSize">36sp</item>
+    </style>
+    <style name="grey_layout.text_view.medium">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="grey_layout.large_text" parent="android:TextAppearance.DeviceDefault.Large">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+    <style name="BrailleButtons" parent="AppTheme">
 
     </style>
 

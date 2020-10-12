@@ -7,9 +7,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/braille_buttons_array"
+        android:background="@android:color/transparent"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_vertical"
@@ -21,8 +22,6 @@
             app:layout_constraintGuide_percent=".50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_horizontal_top_third"
@@ -44,50 +43,26 @@
 
         <ToggleButton
             android:id="@+id/toggleButton1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/selector_dot_buttons"
-            android:checked="false"
             android:tag="1"
-            android:text="ToggleButton"
-            android:textOff=" "
-            android:textOn="⬤"
-            android:drawSelectorOnTop="true"
+            style="@style/grey_layout.array_buttons"
             app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal_top_third"
-            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ToggleButton
             android:id="@+id/toggleButton2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/selector_dot_buttons"
             android:tag="2"
-            android:text="ToggleButton"
-            android:textOff=" "
-            android:textOn="⬤"
-            android:scaleX="1"
-            android:scaleY="1"
+            style="@style/grey_layout.array_buttons"
             app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal_bot_third"
-            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_top_third" />
 
         <ToggleButton
             android:id="@+id/toggleButton3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="8dp"
             android:tag="3"
-            android:text="ToggleButton"
-            android:textOff=" "
-            android:textOn="⬤"
-            android:background="@drawable/animated_selector_dot_buttons"
+            style="@style/grey_layout.array_buttons"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
@@ -96,51 +71,27 @@
 
         <ToggleButton
             android:id="@+id/toggleButton4"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/selector_dot_buttons"
-            android:scaleType="fitCenter"
             android:tag="4"
-            android:text="ToggleButton"
-            android:textOff=" "
-            android:textOn="⬤"
+            style="@style/grey_layout.array_buttons"
             app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal_top_third"
-            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ToggleButton
             android:id="@+id/toggleButton5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="8dp"
-            android:background="@android:color/transparent"
-            android:button="@drawable/selector_dot_buttons"
             android:tag="5"
-            android:text="ToggleButton"
-            android:textOff=" "
-            android:textOn="⬤"
+            style="@style/grey_layout.array_buttons"
             app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal_bot_third"
-            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
             app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_top_third" />
 
         <ToggleButton
             android:id="@+id/toggleButton6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/dot_off"
-            android:checked="false"
             android:tag="6"
-            android:text="ToggleButton"
-            android:textOff=" "
-            android:textOn="⬤"
+            style="@style/grey_layout.array_buttons"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
             app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_bot_third" />
