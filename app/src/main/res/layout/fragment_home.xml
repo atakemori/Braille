@@ -10,35 +10,115 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:theme="@style/grey_layout"
+
         android:id="@+id/home_main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.takemori.braille.MainActivity">
 
-        <TextView
+        <ImageView
+            android:id="@+id/background_drawable_top"
+            style="@style/grey_layout.background_drawables"
+            android:src="@drawable/test__upper_triangles"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/background_drawable_bottom"
+            style="@style/grey_layout.background_drawables"
+            android:src="@drawable/test__lower_triangles"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_text_frame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+
+            android:background="@android:color/transparent"
+
+            app:layout_constraintBottom_toTopOf="@id/guideline_main_text_bottom"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toTopOf="@id/guideline_main_text_top"
+            app:layout_constraintVertical_bias="1.0">
+
+            <ImageView
+                android:id="@+id/main_text_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="false"
+                android:background="@android:color/transparent"
+
+                android:src="@drawable/background__textbox_top_half"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+
+                android:text="@{homeFragmentViewModel.lettersToString}"
+                android:textAlignment="center"
+                android:textSize="28sp"
+                android:paddingTop="20dp"
+                android:paddingHorizontal="10dp"
+                android:textColor="@android:color/black"
+                tools:text="@tools:sample/cities"
+
+                app:layout_constraintTop_toTopOf="@id/main_text_background"
+                app:layout_constraintBottom_toBottomOf="@id/main_text_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:visibility="gone"
             android:id="@+id/letters_to_string"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/main_text_background"
+            android:adjustViewBounds="true"
+            android:background="@drawable/background__textbox_top_half"
+            android:scaleType="matrix"
+
+
             android:text="@{homeFragmentViewModel.lettersToString}"
             android:textAlignment="center"
             android:textSize="28sp"
+
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.1000000"
+            app:layout_constraintVertical_bias="0.113"
             tools:text="@tools:sample/cities" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/buttons"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
+            android:background="@android:color/transparent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@+id/letters_to_string"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/main_text_frame"
             app:layout_constraintVertical_bias="0.60" >
 
             <include
@@ -78,67 +158,70 @@
 
         <ToggleButton
             android:id="@+id/toggleButtonShowAsDots"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
+            style="@style/grey_layout.button_icons.with_background"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:textOff="As ⠿"
             android:textOn="As Text"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_left"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/letters_to_string" />
+            app:layout_constraintBottom_toTopOf="@id/main_text_frame"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toTopOf="@id/guideline_top_row_buttons_top" />
 
         <ImageButton
             android:id="@+id/buttonClear"
+            style="@style/grey_layout.button_icons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
-            android:background="@android:drawable/ic_input_delete"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_buttons_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_right"
-            app:layout_constraintTop_toTopOf="@+id/letters_to_string"
-            app:srcCompat="@drawable/backspace"
-            tools:background="@android:drawable/ic_input_delete" />
+            app:layout_constraintBottom_toBottomOf="@id/main_text_frame"
+            app:layout_constraintEnd_toStartOf="@id/guideline_buttons_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_right"
+            app:layout_constraintTop_toTopOf="@id/main_text_frame"
+            app:srcCompat="@drawable/backspace"/>
 
         <TextView
             android:id="@+id/letterView"
+            style="@style/grey_layout.text_view.large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@{homeFragmentViewModel.brailleToLetter.letter}"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@+id/letters_to_string"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/main_text_frame"
             tools:text="en" />
 
         <TextView
             android:id="@+id/byteView"
+            style="@style/grey_layout.text_view.medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="@{homeFragmentViewModel.brailleByte.toString()}"
-            app:layout_constraintBottom_toTopOf="@+id/buttons"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintBottom_toTopOf="@id/buttons"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
             tools:text="34" />
 
 
         <TextView
             android:id="@+id/dotsView"
+            style="@style/grey_layout.text_view.medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="@{homeFragmentViewModel.brailleToLetter.unicode_dots}"
-            app:layout_constraintBottom_toTopOf="@+id/buttons"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintHorizontal_bias="0.75"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintBottom_toTopOf="@id/buttons"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
             tools:text="⠢" />
 
         <ImageButton
             android:id="@+id/add_letter_button"
+            style="@style/grey_layout.button_icons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -148,12 +231,14 @@
             android:scaleType="fitXY"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@id/guideline_buttons_right"
-            app:layout_constraintStart_toEndOf="@+id/buttons"
-            app:layout_constraintTop_toTopOf="@+id/buttons"
+            app:layout_constraintStart_toEndOf="@id/buttons"
+            app:layout_constraintTop_toTopOf="@id/buttons"
             app:srcCompat="@drawable/plus_circle" />
 
         <ImageButton
             android:id="@+id/clear_cells_button"
+            style="@style/grey_layout.button_icons"
+
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -163,13 +248,13 @@
             android:scaleType="fitXY"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="@id/guideline_buttons_right"
-            app:layout_constraintStart_toEndOf="@+id/buttons"
-            app:layout_constraintTop_toBottomOf="@+id/add_letter_button"
+            app:layout_constraintStart_toEndOf="@id/buttons"
+            app:layout_constraintTop_toBottomOf="@id/add_letter_button"
             app:srcCompat="@drawable/close_circle_outline" />
 
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
+            android:id="@+id/guideline_main_text_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -180,12 +265,41 @@
             app:layout_constraintStart_toStartOf="@id/buttons"
             app:layout_constraintTop_toTopOf="@id/buttons" />
 
+
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
+            android:id="@+id/guideline_main_text_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="287dp" />
+            app:layout_constraintBottom_toBottomOf="@id/buttons"
+            app:layout_constraintEnd_toEndOf="@id/buttons"
+            app:layout_constraintGuide_begin="70dp"
+            app:layout_constraintStart_toStartOf="@id/buttons"
+            app:layout_constraintTop_toTopOf="@id/buttons" />
+
+
+        <ImageButton
+            android:id="@+id/copyButton"
+            style="@style/grey_layout.button_icons.with_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/main_text_frame"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintTop_toTopOf="@id/guideline_top_row_buttons_top"
+            app:srcCompat="?attr/actionModeCopyDrawable" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top_row_buttons_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/main_text_frame"
+            app:layout_constraintGuide_percent="0.025"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

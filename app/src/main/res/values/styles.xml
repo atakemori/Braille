@@ -51,6 +51,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:adjustViewBounds">true</item>
+        <item name="android:background">@android:color/transparent</item>
         <item name="android:focusable">false</item>
         <item name="android:focusableInTouchMode">false</item>
 
@@ -64,7 +65,8 @@
 
     <style name="grey_layout.text_view" parent="Widget.MaterialComponents.TextView">
         <item name="android:background">@android:color/transparent</item>
-        <item name="android:textViewStyle">@style/grey_layout.large_text</item>
+        <item name="android:textColor">@android:color/black</item>
+
     </style>
 
     <style name="grey_layout.text_view.large">
@@ -75,7 +77,7 @@
     </style>
 
     <style name="grey_layout.large_text" parent="android:TextAppearance.DeviceDefault.Large">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
 
