@@ -6,14 +6,12 @@
 
     <path
         android:pathData="M 0,100 H 25 L 0,75 Z"
-        android:strokeWidth="10dp"
         android:fillColor="#9AF32121"
         android:fillType="evenOdd">
     </path>
 
     <path
         android:pathData="M 0,100 H 40 L 0,60 Z"
-        android:strokeWidth="10dp"
         android:fillColor="#B7F32121"
         android:fillType="evenOdd">
     </path>

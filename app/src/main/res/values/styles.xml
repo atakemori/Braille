@@ -16,10 +16,15 @@
 
         <item name="android:textColor">@color/colorText</item>
 
-        <item name="backgroundColor">#FFFFFF</item>
-        <item name="background">#FFFFFF</item>
-        <item name="android:background">#FFFFFF</item>
+        <item name="backgroundColor">@android:color/white</item>
+        <item name="background">@android:color/white</item>
+        <item name="android:background">@android:color/white</item>
 
+    </style>
+
+
+    <style name="AppTheme.PreferenceTheme">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
     </style>
 
 
