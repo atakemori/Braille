@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="User Settings"
+        android:persistent="true">
+
+
+        <SwitchPreferenceCompat
+            android:icon="@drawable/ic_volume"
+            android:key="sound"
+            android:summary="Audio feedback for some buttons"
+            android:title="Enable Sounds" />
+
+        <SwitchPreferenceCompat
+            android:icon="@drawable/ic_animation_icon"
+            android:key="animate"
+            android:title="Enable Animations"
+            android:summary="Simple work-in-progress animations"
+            android:defaultValue="false"/>
+
+
+        <androidx.preference.DropDownPreference
+            android:key="theme"
+            android:entries="@array/settings_theme_entries"
+            android:entryValues="@array/settings_theme_values"
+            android:defaultValue="Light"
+            app:defaultValue="Light"
+            android:title="Theme"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="About the App">
+
+        <Preference
+            android:key="version"
+            android:title="Version"
+            android:summary="1.0"/>
+
+        <Preference
+            android:key="feedback"
+            android:title="Send feedback"
+            android:onClick="TODO"
+            android:summary="Report technical issues or suggest new features"/>
+
+        <Preference
+            android:key="privacy"
+            android:title="Privacy Policy"
+            android:onClick="TODO"
+            android:summary=""/>
+
+        <Preference
+            android:key="github"
+            android:title="Source Code"
+            android:onClick="TODO"
+            android:summary="https://github.com/atakemori/Braille"/>
+
+
+        <Preference
+            android:key="library"
+            android:title="Libraries and Acknowledgements"
+            android:onClick="TODO"
+            android:summary="---------------"/>
+
+
+    </PreferenceCategory>
+
+
+</androidx.preference.PreferenceScreen>
