@@ -17,7 +17,7 @@
             android:icon="@drawable/ic_animation_icon"
             android:key="animate"
             android:title="Enable Animations"
-            android:summary="Simple work-in-progress animations"
+            android:summary="Larger work-in-progress animations"
             android:defaultValue="false"/>
 
 

@@ -38,6 +38,7 @@ class HomeFragment : Fragment() {
 
     lateinit var sharedPreferences: SharedPreferences
     var optionPlaySounds: Boolean = false
+    var optionPlayAnimations: Boolean = false
 
     private final lateinit var soundPlayer:  SoundPool
     private var soundIdToggleOn: Int = 0
@@ -70,6 +71,7 @@ class HomeFragment : Fragment() {
         Log.i("HomeFragment.kt", "onStart sharedPreferences: $sharedPreferencesToString")
 //        sharedPreferences.all.toString()
         optionPlaySounds = sharedPreferences.getBoolean("sound", false)
+        optionPlayAnimations = sharedPreferences.getBoolean("animate", false)
         Log.i("HomeFragment.kt", "onStart boolean from sharedPreferences doPlaySounds: $optionPlaySounds")
 
         soundPlayer = SoundPool(3, AudioManager.USE_DEFAULT_STREAM_TYPE, 0)
@@ -101,9 +103,6 @@ class HomeFragment : Fragment() {
             // For responding to a drag entering the button
             toggleButton.setOnDragListener(dragListener)
 
-//            val buttonX = toggleButton.x + buttonsLayoutRect.left
-//            val buttonY = toggleButton.y + buttonsLayoutRect.top
-
             // A view that gets animated over the button along a path to the main text
             val movingView:ImageView = ImageView(this.context).apply {
                 visibility = View.GONE
@@ -115,12 +114,7 @@ class HomeFragment : Fragment() {
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT
                 )
-//                x = toggleButton.x + binding.buttons.brailleButtonsArray.x
-//                y = toggleButton.y + binding.buttons.brailleButtonsArray.y
                 Log.i("HomeFragment.kt", "movingView initial X: " + toggleButton.x +", " + buttonsLayoutRect.left)
-//                x = toggleButton.x + buttonsLayoutRect.left
-//                y = buttonY
-
             }
             binding.homeMainLayout.addView(movingView)
 
@@ -137,15 +131,16 @@ class HomeFragment : Fragment() {
                 // Do the work regarding view and button coordinates for animation paths.
                 // Attempting to do in the onCreate methods did not work since the Views
                 // had no position components and were not shown yet.
-                binding.lettersToString.getGlobalVisibleRect(mainTextRect)
+                binding.mainTextFrame.getGlobalVisibleRect(mainTextRect)
                 binding.buttons.getGlobalVisibleRect(buttonsLayoutRect)
-                Log.i("HomeFragment.kt", "rectangles in onStart" + buttonsLayoutRect.toString())
+                Log.i("HomeFragment.kt", "mainTextRect rectangles in onStart$mainTextRect")
+                Log.i("HomeFragment.kt", "buttonsLayoutRect rectangles in onStart$buttonsLayoutRect")
 
                 val globalOffset: Point = Point()
                 val tempMainLayoutRect: Rect = Rect()
                 binding.homeMainLayout.getGlobalVisibleRect(tempMainLayoutRect, globalOffset)
-                Log.i("HomeFragment.kt", "MAIN_LAYOUT_RECT: " + tempMainLayoutRect.toString())
-                Log.i("HomeFragment.kt", "MAIN_LAYOUT_OFFSET: " + globalOffset.toString())
+                Log.i("HomeFragment.kt", "MAIN_LAYOUT_RECT: $tempMainLayoutRect")
+                Log.i("HomeFragment.kt", "MAIN_LAYOUT_OFFSET: $globalOffset")
 
                 val buttonX = view.x + buttonsLayoutRect.left
                 val buttonY = view.y + buttonsLayoutRect.top  - globalOffset.y
@@ -164,28 +159,21 @@ class HomeFragment : Fragment() {
                 }
 
                 // send a path animation if the button is toggled to off without pressing that button
-                if (!isChecked && !view.isPressed) {
+                if (optionPlayAnimations && (!isChecked && !view.isPressed)) {
                     // Reset the movingView
                     movingView.scaleX = 1.0f
                     movingView.scaleY = 1.0f
-                    //                    movingView.x = toggleButton.x + binding.buttons.brailleButtonsArray.x
-                    //                    movingView.y = toggleButton.y + binding.buttons.brailleButtonsArray.y
                     movingView.x = buttonX
                     movingView.y = buttonY
 
-
                     movingView.visibility = View.VISIBLE
-
 
                     Log.i("HomeFragment.kt", "buttonX:" + buttonX + ", buttonY: " + buttonY)
                     Log.i("HomeFragment.kt", "ToggleButton relative Coords:" + toggleButton.x + ", " + toggleButton.y)
                     // Sets the path the movingView will follow upwards
                     val path = Path().apply {
                         moveTo(buttonX, buttonY)
-                        //                        quadTo(700f, 400f, binding.lettersToString.x + (binding.lettersToString.width / 2), binding.lettersToString.y + (binding.lettersToString.height / 2))
-                        //                        quadTo(700f, 400f, mainTextRect.exactCenterX(), mainTextRect.exactCenterY())
-
-                        quadTo(1000f, 300f, mainTextRect.exactCenterX() - (toggleButton.width / 2), mainTextRect.exactCenterY() - globalOffset.y - (toggleButton.height / 2))
+                        quadTo(1000f, 300f, mainTextRect.exactCenterX() - (toggleButton.width / 2), mainTextRect.exactCenterY() - (toggleButton.height / 2))
                     }
 
 
@@ -203,12 +191,11 @@ class HomeFragment : Fragment() {
 
                     val animatorSet: AnimatorSet = AnimatorSet()
                     animatorSet.playTogether(pathAnimator, scaleXAnimator, scaleYAnimator)
-                    animatorSet.duration = 500
+                    animatorSet.duration = 350
                     animatorSet.doOnEnd { viewMask.visibility = View.GONE }
                     animatorSet.start()
 
                 }
-
 
             }
         }
