@@ -2,11 +2,11 @@ package com.takemori.braille.ui.home
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
-import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipDescription
+import android.content.SharedPreferences
 import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.media.AudioManager
@@ -17,7 +17,6 @@ import android.os.PersistableBundle
 import android.util.Log
 import android.view.*
 import android.view.animation.*
-import android.view.animation.Interpolator
 import android.widget.ImageView
 import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
@@ -25,8 +24,8 @@ import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.takemori.braille.R
-import com.takemori.braille.R.interpolator
 import com.takemori.braille.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -36,6 +35,9 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
     private lateinit var listOfBrailleButtons: List<ToggleButton>
+
+    lateinit var sharedPreferences: SharedPreferences
+    var optionPlaySounds: Boolean = false
 
     private final lateinit var soundPlayer:  SoundPool
     private var soundIdToggleOn: Int = 0
@@ -57,9 +59,19 @@ class HomeFragment : Fragment() {
     val buttonsLayoutRect: Rect = Rect()
 
 
+
     @ExperimentalStdlibApi
     override fun onStart() {
         super.onStart()
+//        sharedPreferences = this.activity?.getPreferences(Context.MODE_PRIVATE)?: return
+//        sharedPreferences = activity?.getPreferences(Context.MODE_PRIVATE)?: return
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+        var sharedPreferencesToString = sharedPreferences.all.toString()
+        Log.i("HomeFragment.kt", "onStart sharedPreferences: $sharedPreferencesToString")
+//        sharedPreferences.all.toString()
+        optionPlaySounds = sharedPreferences.getBoolean("sound", false)
+        Log.i("HomeFragment.kt", "onStart boolean from sharedPreferences doPlaySounds: $optionPlaySounds")
+
         soundPlayer = SoundPool(3, AudioManager.USE_DEFAULT_STREAM_TYPE, 0)
         soundIdToggleOn = soundPlayer.load(this.context, R.raw.blip_fs5, 1)
         soundIdToggleOff = soundPlayer.load(this.context, R.raw.blip_d5, 1)
@@ -151,17 +163,6 @@ class HomeFragment : Fragment() {
                     }
                 }
 
-                // Only play a sound if the checked change was triggered by pressing the button.
-                //  This way adding or clearing the cells will not play several sounds
-                if (view.isPressed) {
-                    if (isChecked) {
-//                        soundPlayer.play(soundIdToggleOn, 0.5f, 1f, 0, 0, 1f)
-                        playSound(soundIdToggleOn)
-                    } else {
-                        playSound(soundIdToggleOff)
-                    }
-                }
-
                 // send a path animation if the button is toggled to off without pressing that button
                 if (!isChecked && !view.isPressed) {
                     // Reset the movingView
@@ -214,9 +215,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun playSound(soundId: Int) {
-        // Add a field later for options page if playing sounds
-        if (true) {
+        if (optionPlaySounds) {
             soundPlayer.play(soundId, 1f, 1f, 0, 0, 1f)
+        }
+    }
+
+    private fun playSoundButtonToggle(on: Boolean) {
+        if (on) {
+            playSound(soundIdToggleOn)
+        } else {
+            playSound(soundIdToggleOff)
         }
     }
 
@@ -293,9 +301,18 @@ class HomeFragment : Fragment() {
         var check: Boolean = v.isChecked
         when (event.action) {
             DragEvent.ACTION_DRAG_ENTERED -> {
+                // From extras, get whether the drag event is to toggle the buttons
+                //  On or Off, then set their checked status correspondingly.
                 val extras: PersistableBundle = event.clipDescription.extras
+                var dragExtraBool: Boolean = extras.getBoolean("checkedStatus")
                 if (v.tag.toString().toInt() != extras.getInt("buttonStartedDrag")) {
-                    v.isChecked = extras.getBoolean("checkedStatus") //TODO use something else to drop the api level perhaps
+                    if (dragExtraBool != v.isChecked) {
+                        // Set the button
+                        v.isChecked = extras.getBoolean("checkedStatus") //TODO use something else to drop the api level perhaps
+                        // Only play a sound if the checked change was triggered by pressing the button.
+                        //  This way adding or clearing the cells will not play several sounds
+                        playSoundButtonToggle(dragExtraBool)
+                    }
                 }
                 Log.i("HomeFragment.kt", "View Entered")
                 true
@@ -358,6 +375,7 @@ class HomeFragment : Fragment() {
                 it as ToggleButton
                 it.toggle()
                 val isChecked: Boolean = it.isChecked
+                playSoundButtonToggle(isChecked)
                 val buttonStartedDrag: Int = (it.tag as String).toInt()
 
                 // Create a new ClipData.
