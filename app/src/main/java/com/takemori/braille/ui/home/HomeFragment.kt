@@ -1,5 +1,6 @@
 package com.takemori.braille.ui.home
 
+import android.animation.Animator
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -20,6 +21,7 @@ import android.view.animation.*
 import android.widget.ImageView
 import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -39,6 +41,7 @@ class HomeFragment : Fragment() {
     lateinit var sharedPreferences: SharedPreferences
     var optionPlaySounds: Boolean = false
     var optionPlayAnimations: Boolean = false
+    var globalOffset: Point = Point()
 
     private final lateinit var soundPlayer:  SoundPool
     private var soundIdToggleOn: Int = 0
@@ -53,15 +56,9 @@ class HomeFragment : Fragment() {
         //soundPlayer = null
     }
 
-
-    var buttonX: Float = 100f
-    var buttonY: Float = 100f
     var mainTextRect: Rect = Rect()
     val buttonsLayoutRect: Rect = Rect()
 
-
-
-    @ExperimentalStdlibApi
     override fun onStart() {
         super.onStart()
 //        sharedPreferences = this.activity?.getPreferences(Context.MODE_PRIVATE)?: return
@@ -80,15 +77,17 @@ class HomeFragment : Fragment() {
     }
 
 
-
-
-
-    @ExperimentalStdlibApi
     @RequiresApi(Build.VERSION_CODES.N)
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        val buttonBounceAnimation: Animation = AnimationUtils.loadAnimation(this.context, R.anim.button_bounce_v2)
+    @ExperimentalStdlibApi
+    private fun assignButtonFunctions() {
+        // Do the work regarding view and button coordinates for animation paths.
+        // Attempting to do in the onCreate methods did not work since the Views
+        // had no position components and were not shown yet.
+        binding.mainTextFrame.getGlobalVisibleRect(mainTextRect)
+        binding.buttons.getGlobalVisibleRect(buttonsLayoutRect)
+        Log.i("HomeFragment.kt", "HERE ${buttonsLayoutRect.toShortString()}")
+        val tempMainLayoutRect: Rect = Rect()
+        binding.homeMainLayout.getGlobalVisibleRect(tempMainLayoutRect, globalOffset)
 
         // Assign the bindings and animations to all buttons
         Log.i("HomeFragment.kt", "Binding the buttons")
@@ -107,6 +106,8 @@ class HomeFragment : Fragment() {
             val movingView:ImageView = ImageView(this.context).apply {
                 visibility = View.GONE
                 isClickable = false
+                isFocusable = false
+                isEnabled = false
                 id = buttonNum + 5000
                 setImageResource(R.drawable.dot_off)
                 adjustViewBounds = true
@@ -118,34 +119,15 @@ class HomeFragment : Fragment() {
             }
             binding.homeMainLayout.addView(movingView)
 
-
-
-
-            Log.i("HomeFragment.kt", "onStart location when binding: " + toggleButton.x +", " + buttonsLayoutRect.left)
+            // Get the animator set for sending the masks to the text box.
+            val viewMask: ImageView = binding.homeMainLayout.findViewById(buttonNum + 5000)
+            val animatorSet: AnimatorSet = generateAnimatorSet(toggleButton, viewMask)
 
             // Add OnChecked listeners for updating viewModel data and animations once the buttons are toggled
             toggleButton.setOnCheckedChangeListener { view, isChecked ->
                 homeViewModel.buttonFlip(buttonNum, isChecked)
 
-
-                // Do the work regarding view and button coordinates for animation paths.
-                // Attempting to do in the onCreate methods did not work since the Views
-                // had no position components and were not shown yet.
-                binding.mainTextFrame.getGlobalVisibleRect(mainTextRect)
-                binding.buttons.getGlobalVisibleRect(buttonsLayoutRect)
-                Log.i("HomeFragment.kt", "mainTextRect rectangles in onStart$mainTextRect")
-                Log.i("HomeFragment.kt", "buttonsLayoutRect rectangles in onStart$buttonsLayoutRect")
-
-                val globalOffset: Point = Point()
-                val tempMainLayoutRect: Rect = Rect()
-                binding.homeMainLayout.getGlobalVisibleRect(tempMainLayoutRect, globalOffset)
-                Log.i("HomeFragment.kt", "MAIN_LAYOUT_RECT: $tempMainLayoutRect")
-                Log.i("HomeFragment.kt", "MAIN_LAYOUT_OFFSET: $globalOffset")
-
-                val buttonX = view.x + buttonsLayoutRect.left
-                val buttonY = view.y + buttonsLayoutRect.top  - globalOffset.y
-
-                //Animate the button check
+                // Animate the button check
                 if (isChecked) {
                     (AnimatorInflater.loadAnimator(this.context, R.animator.button_bounce_checkon_property_animator) as AnimatorSet).apply {
                         setTarget(toggleButton)
@@ -160,45 +142,61 @@ class HomeFragment : Fragment() {
 
                 // send a path animation if the button is toggled to off without pressing that button
                 if (optionPlayAnimations && (!isChecked && !view.isPressed)) {
-                    // Reset the movingView
-                    movingView.scaleX = 1.0f
-                    movingView.scaleY = 1.0f
-                    movingView.x = buttonX
-                    movingView.y = buttonY
-
                     movingView.visibility = View.VISIBLE
-
-                    Log.i("HomeFragment.kt", "buttonX:" + buttonX + ", buttonY: " + buttonY)
-                    Log.i("HomeFragment.kt", "ToggleButton relative Coords:" + toggleButton.x + ", " + toggleButton.y)
-                    // Sets the path the movingView will follow upwards
-                    val path = Path().apply {
-                        moveTo(buttonX, buttonY)
-                        quadTo(1000f, 300f, mainTextRect.exactCenterX() - (toggleButton.width / 2), mainTextRect.exactCenterY() - (toggleButton.height / 2))
-                    }
-
-
-                    val viewMask: ImageView = binding.homeMainLayout.findViewById(buttonNum + 5000)
-
-                    val pathAnimator = ObjectAnimator.ofFloat(viewMask, View.X, View.Y, path)
-                    pathAnimator.interpolator = DecelerateInterpolator(1.5f)
-
-                    val scaleXAnimator = ObjectAnimator.ofFloat(viewMask, View.SCALE_X, 0.0f)
-                    val scaleYAnimator = ObjectAnimator.ofFloat(viewMask, View.SCALE_Y, 0.0f)
-                    scaleXAnimator.interpolator = AnticipateInterpolator(0.20f)
-                    scaleYAnimator.interpolator = AnticipateInterpolator(0.20f) //scaleXAnimator.interpolator
-
-                    //val toWhiteAnimator = ObjectAnimator.ofObject(viewMask, "backgroundColor", ArgbEvaluator(), 0xFFFFFFFF, 0xFFFFFFFF)
-
-                    val animatorSet: AnimatorSet = AnimatorSet()
-                    animatorSet.playTogether(pathAnimator, scaleXAnimator, scaleYAnimator)
-                    animatorSet.duration = 350
-                    animatorSet.doOnEnd { viewMask.visibility = View.GONE }
                     animatorSet.start()
-
                 }
-
             }
         }
+    }
+
+    private fun generateAnimatorSet(buttonView: ToggleButton, targetView: View): AnimatorSet {
+        val buttonX = buttonView.x + buttonsLayoutRect.left
+        val buttonY = buttonView.y + buttonsLayoutRect.top  - globalOffset.y
+
+        // Define animator set
+        val animatorSet: AnimatorSet = AnimatorSet()
+
+        // Reset View properties?
+
+        // Create the path
+        val path = Path().apply {
+            moveTo(buttonX, buttonY)
+            // Not buttonView.height/2 since the scaling is not using a center pivot point
+            quadTo(1000f, 300f, mainTextRect.exactCenterX() - (buttonView.width / 2), mainTextRect.exactCenterY() - (3*buttonView.height/4))
+        }
+
+        // DEBUG
+        val textBoxX = mainTextRect.exactCenterX() - (buttonView.width / 2)
+        val textBoxY = mainTextRect.exactCenterY() - (buttonView.height / 2)
+        Log.i("HomeFragment.kt", "\n buttonXY: ($buttonX,$buttonY)\n    |\n    |\n    V\n")
+        Log.i("HomeFragment.kt", "textBoxXY: ($textBoxX, $textBoxY)")
+
+
+        // Create animator object to move View X and Y
+        val pathAnimator = ObjectAnimator.ofFloat(targetView, View.X, View.Y, path)
+        pathAnimator.interpolator = DecelerateInterpolator(1.5f)
+
+        // Repeat for scale, tint, etc...
+        //val toWhiteAnimator = ObjectAnimator.ofObject(viewMask, "backgroundColor", ArgbEvaluator(), 0xFFFFFFFF, 0xFFFFFFFF)
+        val scaleXAnimator = ObjectAnimator.ofFloat(targetView, View.SCALE_X, 0.0f)
+        val scaleYAnimator = ObjectAnimator.ofFloat(targetView, View.SCALE_Y, 0.0f)
+        scaleXAnimator.interpolator = AnticipateInterpolator(0.20f)
+        scaleYAnimator.interpolator = AnticipateInterpolator(0.20f)
+
+        // Add to animator set, for set duration, remove View visibility on finish
+        animatorSet.playTogether(pathAnimator, scaleXAnimator, scaleYAnimator)
+        animatorSet.duration = 350
+        animatorSet.doOnEnd {
+            // Reset the animated View and disappear
+            targetView.visibility = View.GONE
+            targetView.scaleX = 1.0f
+            targetView.scaleY = 1.0f
+            targetView.x = buttonX
+            targetView.y = buttonY
+        }
+
+        // Assign animator set to targetView, return.
+        return animatorSet
     }
 
     private fun playSound(soundId: Int) {
@@ -262,6 +260,22 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
+
+    @ExperimentalStdlibApi
+    @RequiresApi(Build.VERSION_CODES.N)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Posts a runnable on the UI thread to notify and queue assigning functions
+        // to the Braille buttons only after the views are laid out.
+        //   Doing this before IN ANY OF THE GODDAMN ONCREATE FUNCTIONS IN ANDROID will cause views to have no position.
+        val mainLayout: ConstraintLayout = binding.homeMainLayout
+        mainLayout.post { ->
+            assignButtonFunctions()
+        }
+    }
+
+
 
 
     public fun addLetter() {
