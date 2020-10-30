@@ -23,12 +23,15 @@ import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
+import androidx.core.animation.doOnStart
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.takemori.braille.R
 import com.takemori.braille.databinding.FragmentHomeBinding
+import kotlin.random.Random
 
 class HomeFragment : Fragment() {
 
@@ -109,7 +112,10 @@ class HomeFragment : Fragment() {
                 isFocusable = false
                 isEnabled = false
                 id = buttonNum + 5000
-                setImageResource(R.drawable.dot_off)
+                x = toggleButton.x
+                y = toggleButton.y
+                setImageResource(R.drawable.dot_ghost)
+                setColorFilter(Color.parseColor("#B0E4E2E2"))
                 adjustViewBounds = true
                 layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -142,7 +148,6 @@ class HomeFragment : Fragment() {
 
                 // send a path animation if the button is toggled to off without pressing that button
                 if (optionPlayAnimations && (!isChecked && !view.isPressed)) {
-                    movingView.visibility = View.VISIBLE
                     animatorSet.start()
                 }
             }
@@ -156,7 +161,15 @@ class HomeFragment : Fragment() {
         // Define animator set
         val animatorSet: AnimatorSet = AnimatorSet()
 
-        // Reset View properties?
+        // Reset View properties
+        animatorSet.doOnStart {
+            targetView.visibility = View.VISIBLE
+//            targetView.scaleX = 1.0f
+//            targetView.scaleY = 1.0f
+            targetView.alpha = 1.0f
+            targetView.x = buttonX
+            targetView.y = buttonY
+        }
 
         // Create the path
         val path = Path().apply {
@@ -177,22 +190,19 @@ class HomeFragment : Fragment() {
         pathAnimator.interpolator = DecelerateInterpolator(1.5f)
 
         // Repeat for scale, tint, etc...
-        //val toWhiteAnimator = ObjectAnimator.ofObject(viewMask, "backgroundColor", ArgbEvaluator(), 0xFFFFFFFF, 0xFFFFFFFF)
-        val scaleXAnimator = ObjectAnimator.ofFloat(targetView, View.SCALE_X, 0.0f)
-        val scaleYAnimator = ObjectAnimator.ofFloat(targetView, View.SCALE_Y, 0.0f)
+        val scaleXAnimator = ObjectAnimator.ofFloat(targetView, View.SCALE_X, 1.0f, 0.0f, 0.0f)
+        val scaleYAnimator = ObjectAnimator.ofFloat(targetView, View.SCALE_Y, 1.0f, 0.0f, 0.0f)
         scaleXAnimator.interpolator = AnticipateInterpolator(0.20f)
         scaleYAnimator.interpolator = AnticipateInterpolator(0.20f)
+        val alphaAnimator = ObjectAnimator.ofFloat(targetView, View.ALPHA, 1.0f, 0.5f, 0.0f)
 
         // Add to animator set, for set duration, remove View visibility on finish
-        animatorSet.playTogether(pathAnimator, scaleXAnimator, scaleYAnimator)
+        animatorSet.playTogether(pathAnimator, scaleXAnimator, scaleYAnimator, alphaAnimator)
         animatorSet.duration = 350
+        animatorSet.startDelay = buttonView.tag.toString().toLong() * 25
         animatorSet.doOnEnd {
             // Reset the animated View and disappear
             targetView.visibility = View.GONE
-            targetView.scaleX = 1.0f
-            targetView.scaleY = 1.0f
-            targetView.x = buttonX
-            targetView.y = buttonY
         }
 
         // Assign animator set to targetView, return.
