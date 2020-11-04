@@ -27,6 +27,7 @@ import androidx.core.animation.doOnStart
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.takemori.braille.R
@@ -50,6 +51,69 @@ class HomeFragment : Fragment() {
     private var soundIdToggleOn: Int = 0
     private var soundIdToggleOff: Int = 0
 
+    @RequiresApi(Build.VERSION_CODES.N)
+    @ExperimentalStdlibApi
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = DataBindingUtil.inflate(
+                inflater,
+                R.layout.fragment_home,
+                container,
+                false
+        )
+//        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java) original
+//        homeViewModel = ViewModelProvider(this.context).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProvider(this.requireActivity()).get(HomeViewModel::class.java)
+
+        // Set the viewmodel for databinding -this allows the bound layout access
+        // to all the data in the ViewModel
+        binding.homeFragmentViewModel = homeViewModel
+
+        // Specify the fragment view as the lifecycle owner of the binding.
+        // This is used so that the binding can observe LiveData updates
+        binding.lifecycleOwner = viewLifecycleOwner
+
+//        homeViewModel.brailleByte.observe(viewLifecycleOwner, Observer<Byte> { byte -> textView.text = byte.toString() })
+
+        // Put all bindings into a list for easily assigning them listeners
+        listOfBrailleButtons = listOf(
+                binding.buttonsInclude.toggleButton1,
+                binding.buttonsInclude.toggleButton4,
+                binding.buttonsInclude.toggleButton2,
+                binding.buttonsInclude.toggleButton5,
+                binding.buttonsInclude.toggleButton3,
+                binding.buttonsInclude.toggleButton6
+        )
+
+
+        // Bind additional buttons to add and remove letters from main string list
+        binding.buttonClear.setOnClickListener { removeLetter() }
+        binding.addLetterButton.setOnClickListener { addLetter()}
+        binding.toggleButtonShowAsDots.setOnCheckedChangeListener { buttonView, isChecked ->  homeViewModel.setShowAsDots(isChecked)}
+        binding.clearCellsButton.setOnClickListener { clearButtons() }
+//        binding.buttons.toggleButton6.isHapticFeedbackEnabled = true
+//        binding.buttons.toggleButton6.setOnCheckedChangeListener { buttonView, isChecked ->
+//            if (isChecked) { buttonView.performHapticFeedback(LONG_PRESS) }
+//            else { buttonView.performHapticFeedback(LONG_PRESS)}
+//            homeViewModel.buttonFlip(6, isChecked)
+//        }
+
+        return binding.root
+    }
+
+    @ExperimentalStdlibApi
+    @RequiresApi(Build.VERSION_CODES.N)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Posts a runnable on the UI thread to notify and queue assigning functions
+        // to the Braille buttons only after the views are laid out.
+        //   Doing this before IN ANY OF THE GODDAMN ONCREATE FUNCTIONS IN ANDROID will cause views to have no position.
+        val mainLayout: ConstraintLayout = binding.homeMainLayout
+        mainLayout.post { ->
+            assignButtonFunctions()
+        }
+    }
 
     override fun onStop() {
         super.onStop()
@@ -223,67 +287,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
-    @ExperimentalStdlibApi
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(
-                inflater,
-                R.layout.fragment_home,
-                container,
-                false
-        )
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        // Set the viewmodel for databinding -this allows the bound layout access
-        // to all the data in the ViewModel
-        binding.homeFragmentViewModel = homeViewModel
-
-        // Specify the fragment view as the lifecycle owner of the binding.
-        // This is used so that the binding can observe LiveData updates
-        binding.lifecycleOwner = viewLifecycleOwner
-
-//        homeViewModel.brailleByte.observe(viewLifecycleOwner, Observer<Byte> { byte -> textView.text = byte.toString() })
-
-        // Put all bindings into a list for easily assigning them listeners
-        listOfBrailleButtons = listOf(
-                binding.buttonsInclude.toggleButton1,
-                binding.buttonsInclude.toggleButton4,
-                binding.buttonsInclude.toggleButton2,
-                binding.buttonsInclude.toggleButton5,
-                binding.buttonsInclude.toggleButton3,
-                binding.buttonsInclude.toggleButton6
-        )
-
-
-        // Bind additional buttons to add and remove letters from main string list
-        binding.buttonClear.setOnClickListener { removeLetter() }
-        binding.addLetterButton.setOnClickListener { addLetter()}
-        binding.toggleButtonShowAsDots.setOnCheckedChangeListener { buttonView, isChecked ->  homeViewModel.setShowAsDots(isChecked)}
-        binding.clearCellsButton.setOnClickListener { clearButtons() }
-//        binding.buttons.toggleButton6.isHapticFeedbackEnabled = true
-//        binding.buttons.toggleButton6.setOnCheckedChangeListener { buttonView, isChecked ->
-//            if (isChecked) { buttonView.performHapticFeedback(LONG_PRESS) }
-//            else { buttonView.performHapticFeedback(LONG_PRESS)}
-//            homeViewModel.buttonFlip(6, isChecked)
-//        }
-
-        return binding.root
-    }
-
-    @ExperimentalStdlibApi
-    @RequiresApi(Build.VERSION_CODES.N)
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Posts a runnable on the UI thread to notify and queue assigning functions
-        // to the Braille buttons only after the views are laid out.
-        //   Doing this before IN ANY OF THE GODDAMN ONCREATE FUNCTIONS IN ANDROID will cause views to have no position.
-        val mainLayout: ConstraintLayout = binding.homeMainLayout
-        mainLayout.post { ->
-            assignButtonFunctions()
-        }
-    }
 
 
 
