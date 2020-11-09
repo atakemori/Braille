@@ -9,20 +9,20 @@
 
         <SwitchPreferenceCompat
             android:icon="@drawable/ic_volume"
-            android:key="sound"
+            android:key="@string/preferencekey_sound"
             android:summary="Audio feedback for some buttons"
             android:title="Enable Sounds" />
 
         <SwitchPreferenceCompat
             android:icon="@drawable/ic_animation_icon"
-            android:key="animate"
+            android:key="@string/preferencekey_animate"
             android:title="Enable Animations"
             android:summary="Larger work-in-progress animations"
             android:defaultValue="false"/>
 
 
         <androidx.preference.DropDownPreference
-            android:key="theme"
+            android:key="@string/preferencekey_theme"
             android:entries="@array/settings_theme_entries"
             android:entryValues="@array/settings_theme_values"
             android:defaultValue="Light"
@@ -36,12 +36,12 @@
         android:title="About the App">
 
         <Preference
-            android:key="version"
+            android:key="@string/preferencekey_version"
             android:title="Version"
             android:summary="1.0"/>
 
         <Preference
-            android:key="feedback"
+            android:key="@string/preferencekey_feedback"
             android:title="Send feedback"
             android:summary="Report technical issues or suggest new features">
             <intent
@@ -50,12 +50,12 @@
         </Preference>
 
         <Preference
-            android:key="privacy"
+            android:key="@string/preferencekey_privacy"
             android:summary=""
             android:title="Privacy Policy" />
 
         <Preference
-            android:key="github"
+            android:key="@string/preferencekey_github"
             android:title="Source Code"
             android:summary="Open: github.com/atakemori/Braille">
             <intent

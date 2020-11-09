@@ -36,7 +36,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         setPreferencesFromResource(R.xml.preference_screen, rootKey);
 
         // Find the preference about the privacy statement and launch a dialog onClick.
-        Preference privacyPreference = findPreference("privacy");
+        Preference privacyPreference = findPreference(getString(R.string.preferencekey_privacy));
         privacyPreference.setOnPreferenceClickListener(preference -> {
             privacyLaunchDialog();
             return true;
