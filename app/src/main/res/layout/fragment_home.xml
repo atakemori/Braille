@@ -64,23 +64,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <android.widget.ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="@android:color/transparent"
 
-                android:text="@{homeFragmentViewModel.lettersToString}"
-                android:textAlignment="center"
-                android:textSize="28sp"
-                android:paddingTop="20dp"
-                android:paddingHorizontal="10dp"
-                android:textColor="@android:color/black"
-                tools:text="@tools:sample/cities"
-
                 app:layout_constraintTop_toTopOf="@id/main_text_background"
                 app:layout_constraintBottom_toBottomOf="@id/main_text_background"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+
+                    android:text="@{homeFragmentViewModel.lettersToString}"
+                    android:textAlignment="center"
+                    android:textSize="28sp"
+                    android:paddingTop="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@android:color/black"
+                    tools:text="@tools:sample/cities"
+
+                    android:scrollbars="vertical"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </android.widget.ScrollView>
+
+
 
 
 
