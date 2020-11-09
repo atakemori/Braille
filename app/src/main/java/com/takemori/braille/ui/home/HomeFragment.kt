@@ -5,9 +5,7 @@ import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
-import android.content.ClipData
-import android.content.ClipDescription
-import android.content.SharedPreferences
+import android.content.*
 import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.media.AudioManager
@@ -19,12 +17,14 @@ import android.util.Log
 import android.view.*
 import android.view.animation.*
 import android.widget.ImageView
+import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModel
@@ -91,6 +91,7 @@ class HomeFragment : Fragment() {
         binding.addLetterButton.setOnClickListener { addLetter()}
         binding.toggleButtonShowAsDots.setOnCheckedChangeListener { buttonView, isChecked ->  homeViewModel.setShowAsDots(isChecked)}
         binding.clearCellsButton.setOnClickListener { clearButtons() }
+        binding.copyButton.setOnClickListener { copyMainText() }
 //        binding.buttons.toggleButton6.isHapticFeedbackEnabled = true
 //        binding.buttons.toggleButton6.setOnCheckedChangeListener { buttonView, isChecked ->
 //            if (isChecked) { buttonView.performHapticFeedback(LONG_PRESS) }
@@ -307,6 +308,19 @@ class HomeFragment : Fragment() {
 
     public fun removeLetter() {
         homeViewModel.removeLetter()
+    }
+
+
+    public fun copyMainText() {
+        val clipboard: ClipboardManager? = getSystemService(this.requireContext(), ClipboardManager::class.java)
+        val clip: ClipData = ClipData.newPlainText("MainText", homeViewModel.lettersToString.value)
+        // Add the text to the clipboard. If not found, then pop an error toast.
+        if (clipboard != null) {
+            clipboard.setPrimaryClip(clip)
+            Toast.makeText(this.requireContext(), "Copied to clipboard.", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this.requireContext(), "Cannot set clipboard text.", Toast.LENGTH_SHORT).show()
+        }
     }
 
 
