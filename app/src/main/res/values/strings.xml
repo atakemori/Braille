@@ -3,4 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_settings">Settings</string>
+
+    <string name="privacy_policy_title">Privacy Policy</string>
+    <string name="privacy_policy_V1.0">This app does not collect personal data.\nThis app does not store personal data.\nAnd this app does not distribute personal data.\n\nThis app is a simple tool and does not require the use of personal data.  Should the app ever be updated to include analytics tracking, this privacy policy will also be updated accordingly.\n\n\t\tNovember 9, 2020\n\t\tV1.0</string>
 </resources>

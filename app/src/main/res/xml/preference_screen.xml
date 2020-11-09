@@ -43,27 +43,31 @@
         <Preference
             android:key="feedback"
             android:title="Send feedback"
-            android:onClick="TODO"
-            android:summary="Report technical issues or suggest new features"/>
+            android:summary="Report technical issues or suggest new features">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/atakemori/Braille/issues/new"/>
+        </Preference>
 
         <Preference
             android:key="privacy"
-            android:title="Privacy Policy"
-            android:onClick="TODO"
-            android:summary=""/>
+            android:summary=""
+            android:title="Privacy Policy" />
 
         <Preference
             android:key="github"
             android:title="Source Code"
-            android:onClick="TODO"
-            android:summary="https://github.com/atakemori/Braille"/>
+            android:summary="Open: github.com/atakemori/Braille">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/atakemori/Braille"/>
+        </Preference>
 
 
-        <Preference
+        <!--Preference
             android:key="library"
             android:title="Libraries and Acknowledgements"
-            android:onClick="TODO"
-            android:summary="---------------"/>
+            android:summary=""/> -->
 
 
     </PreferenceCategory>

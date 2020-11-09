@@ -2,12 +2,12 @@
 <resources>
     <string-array name="settings_theme_entries">
         <item>Light</item>
-        <item>Dark</item>
+        <!--Dark-->
     </string-array>
 
     <string-array name="settings_theme_values">
         <item>Light</item>
-        <item>Dark</item>
+        <!--Dark-->
     </string-array>
 
 
