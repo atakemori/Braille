@@ -172,24 +172,17 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".95" />
 
-        <ToggleButton
-            android:id="@+id/toggleButtonShowAsDots"
-            style="@style/grey_layout.button_icons.with_background"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:textOff="As ⠿"
-            android:textOn="As Text"
-            app:layout_constraintBottom_toTopOf="@id/main_text_frame"
-            app:layout_constraintStart_toStartOf="@id/guideline_left"
-            app:layout_constraintTop_toTopOf="@id/guideline_top_row_buttons_top" />
-
         <ImageButton
             android:id="@+id/buttonClear"
             style="@style/grey_layout.button_icons"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintBottom_toBottomOf="@id/main_text_frame"
             app:layout_constraintEnd_toStartOf="@id/guideline_buttons_right"
             app:layout_constraintStart_toStartOf="@id/guideline_right"
@@ -293,6 +286,31 @@
             app:layout_constraintStart_toStartOf="@id/buttons"
             app:layout_constraintTop_toTopOf="@id/buttons" />
 
+        <ToggleButton
+            android:id="@+id/toggleButtonShowAsDots"
+            style="@style/grey_layout.button_icons.with_background"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textOff="As ⠿"
+            android:textOn="As Text"
+            android:layout_margin="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/copyButton"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toTopOf="@id/copyButton" />
+
+        <ImageButton
+            android:id="@+id/clearAllButton"
+            style="@style/grey_layout.button_icons.with_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/main_text_frame"
+            app:layout_constraintStart_toEndOf="@id/toggleButtonShowAsDots"
+            app:layout_constraintEnd_toStartOf="@id/copyButton"
+            app:layout_constraintTop_toTopOf="@id/guideline_top_row_buttons_top"
+            app:srcCompat="@drawable/ic_rounded_x" />
 
         <ImageButton
             android:id="@+id/copyButton"

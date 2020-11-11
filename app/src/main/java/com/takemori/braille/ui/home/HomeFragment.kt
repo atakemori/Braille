@@ -92,6 +92,7 @@ class HomeFragment : Fragment() {
         binding.toggleButtonShowAsDots.setOnCheckedChangeListener { buttonView, isChecked ->  homeViewModel.setShowAsDots(isChecked)}
         binding.clearCellsButton.setOnClickListener { clearButtons() }
         binding.copyButton.setOnClickListener { copyMainText() }
+        binding.clearAllButton.setOnClickListener { clearMainText() }
 //        binding.buttons.toggleButton6.isHapticFeedbackEnabled = true
 //        binding.buttons.toggleButton6.setOnCheckedChangeListener { buttonView, isChecked ->
 //            if (isChecked) { buttonView.performHapticFeedback(LONG_PRESS) }
@@ -306,6 +307,10 @@ class HomeFragment : Fragment() {
         }
     }
 
+    public fun clearMainText() {
+        homeViewModel.clearAllLetters()
+    }
+
     public fun removeLetter() {
         homeViewModel.removeLetter()
     }
@@ -314,10 +319,14 @@ class HomeFragment : Fragment() {
     public fun copyMainText() {
         val clipboard: ClipboardManager? = getSystemService(this.requireContext(), ClipboardManager::class.java)
         val clip: ClipData = ClipData.newPlainText("MainText", homeViewModel.lettersToString.value)
-        // Add the text to the clipboard. If not found, then pop an error toast.
+        // Add the text to the clipboard. If not found or empty, then pop an error toast.
         if (clipboard != null) {
-            clipboard.setPrimaryClip(clip)
-            Toast.makeText(this.requireContext(), "Copied to clipboard.", Toast.LENGTH_SHORT).show()
+            if (clip.toString().isNotEmpty()) {
+                clipboard.setPrimaryClip(clip)
+                Toast.makeText(this.requireContext(), "Copied to clipboard.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this.requireContext(), "No text to copy.", Toast.LENGTH_SHORT).show()
+            }
         } else {
             Toast.makeText(this.requireContext(), "Cannot set clipboard text.", Toast.LENGTH_SHORT).show()
         }

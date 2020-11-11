@@ -27,7 +27,7 @@ class HomeViewModel : ViewModel() {
 
     val brailleToLetter = Transformations.map(brailleByte) { input: Byte? ->
         val i = input?.toInt()?: 0
-        return@map Braille.getLetter(i) //TODO add logic to determin if it should show letter or abbrev etc.
+        return@map Braille.getLetter(i) //TODO add logic to determine if it should show letter or abbrev etc.
     }
 
     private val _lettersList = MutableLiveData<MutableList<Letter>>()
@@ -111,6 +111,16 @@ class HomeViewModel : ViewModel() {
     public fun removeLetter() {
         if (_lettersList.value!!.isNotEmpty()) {
             _lettersList.value?.removeLast()
+            _lettersList.notifyObserver()
+        }
+    }
+
+    /**
+     * Clear all letters in the main text
+     */
+    public fun clearAllLetters() {
+        if (_lettersList.value!!.isNotEmpty()) {
+            _lettersList.value?.clear()
             _lettersList.notifyObserver()
         }
     }
