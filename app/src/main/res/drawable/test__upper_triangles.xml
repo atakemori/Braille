@@ -5,7 +5,7 @@
     android:height="100dp">
 
     <path
-        android:pathData="M 0,0 H 108 L 0,30 Z"
+        android:pathData="M 0,0 H 126 L 0,35 Z"
         android:fillColor="#B72196F3"
         android:fillType="evenOdd">
     </path>
@@ -16,7 +16,7 @@
         android:rotation="90"
         android:translateX="108">
         <path
-            android:pathData="M 0,0 H 108 L 0,30 Z"
+            android:pathData="M 0,0 H 126 L 0,35 Z"
             android:fillColor="#6062CEFF"
             android:fillType="evenOdd">
         </path>

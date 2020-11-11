@@ -80,6 +80,9 @@
     <style name="grey_layout.text_view.medium">
         <item name="android:textSize">24sp</item>
     </style>
+    <style name="grey_layout.text_view.small">
+        <item name="android:textSize">12sp</item>
+    </style>
 
     <style name="grey_layout.large_text" parent="android:TextAppearance.DeviceDefault.Large">
         <item name="android:textColor">@android:color/black</item>

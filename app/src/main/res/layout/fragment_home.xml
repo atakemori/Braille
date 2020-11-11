@@ -202,16 +202,44 @@
             tools:text="en" />
 
         <TextView
+            android:id="@+id/unicodeLabel"
+            style="@style/grey_layout.text_view.small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:alpha=".5"
+            app:layout_constraintBottom_toTopOf="@id/byteView"
+            app:layout_constraintStart_toStartOf="@id/byteView"
+            app:layout_constraintEnd_toEndOf="@id/byteView"
+            android:text="Unicode"/>
+
+        <TextView
+            android:id="@+id/unicodeDots"
+            style="@style/grey_layout.text_view.small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:alpha=".5"
+            android:text="Rendered"
+            app:layout_constraintEnd_toEndOf="@id/dotsView"
+            app:layout_constraintStart_toStartOf="@id/dotsView"
+            app:layout_constraintTop_toTopOf="@+id/unicodeLabel" />
+
+        <TextView
             android:id="@+id/byteView"
             style="@style/grey_layout.text_view.medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:alpha=".75"
             android:text="@{homeFragmentViewModel.brailleToLetter.unicode_code}"
             app:layout_constraintBottom_toTopOf="@id/buttons"
             app:layout_constraintEnd_toStartOf="@id/guideline_right"
             app:layout_constraintHorizontal_bias="0.10"
             app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/letterView"
             tools:text="U+2822" />
 
 
@@ -221,12 +249,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:alpha=".75"
             android:text="@{homeFragmentViewModel.brailleToLetter.unicode_dots}"
+            android:textSize="40sp"
             app:layout_constraintBottom_toTopOf="@id/buttons"
             app:layout_constraintEnd_toStartOf="@id/guideline_right"
             app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toStartOf="@id/guideline_left"
-            tools:text="⠢" />
+            app:layout_constraintTop_toBottomOf="@+id/letterView"
+            tools:text="⠪" />
 
         <ImageButton
             android:id="@+id/add_letter_button"
@@ -247,7 +278,6 @@
         <ImageButton
             android:id="@+id/clear_cells_button"
             style="@style/grey_layout.button_icons"
-
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
